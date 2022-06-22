@@ -52,7 +52,8 @@ const Main = ({ children, router }) => {
 
 
           var seconds = videoRef.current.duration % 60
-          // console.log(percent)
+          console.log(((seconds * percent) / 100).toFixed(2))
+          console.log(((seconds * percent) / 100).toFixed(2))
 
           setPercent(percent)
           videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
@@ -108,7 +109,7 @@ const Main = ({ children, router }) => {
         {/* <NavBar path={router.asPath} /> */}
 
         <Container maxW="container.md" pt={14}>
-          {/* <Particles
+          <Particles
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
@@ -185,9 +186,9 @@ const Main = ({ children, router }) => {
               },
               detectRetina: true,
             }}
-          /> */}
+          />
 
-          {/* <svg className='progress-icon' viewBox="0 0 60 60">
+          <svg className='progress-icon' viewBox="0 0 60 60">
             <motion.path
               fill="none"
               strokeWidth="5"
@@ -212,9 +213,8 @@ const Main = ({ children, router }) => {
               strokeDasharray="0 1"
               animate={{ pathLength: isComplete ? 1 : 0 }}
             />
-          </svg> */}
-          {/* {!hide && <video ref={videoRef} muted >
-          </video>} */}
+          </svg>
+
 
           <AnimatePresence>
             {!hide && (
@@ -233,7 +233,7 @@ const Main = ({ children, router }) => {
             )}
           </AnimatePresence>
 
-          {/* <LazyVoxelDog /> */}
+          <LazyVoxelDog />
 
           {children}
 
