@@ -42,23 +42,23 @@ const Main = ({ children, router }) => {
     setInterval(() => {
 
       // if (typeof window !== "undefined") {
-        var h = document.documentElement,
-          b = document.body,
-          st = 'scrollTop',
-          sh = 'scrollHeight';
+      var h = document.documentElement,
+        b = document.body,
+        st = 'scrollTop',
+        sh = 'scrollHeight';
 
-        var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
-        if (videoRef && videoRef.current && percent && !hide) {
+      var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+      if (videoRef && videoRef.current && percent && !hide) {
 
 
-          var seconds = videoRef.current.duration % 60
-          console.log(((seconds * percent) / 100).toFixed(2))
-          console.log(((seconds * percent) / 100).toFixed(2))
+        var seconds = videoRef.current.duration % 60
+        console.log(((seconds * percent) / 100).toFixed(2))
+        console.log(((seconds * percent) / 100).toFixed(2))
 
-          setPercent(percent)
-          videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
+        setPercent(percent)
+        videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
 
-        }
+      }
       // }
     }, 33.7);
   }, [])
@@ -216,30 +216,33 @@ const Main = ({ children, router }) => {
           </svg>
 
 
-          <AnimatePresence>
-            { (
-              <motion.video
-                ref={videoRef}
-                muted
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <source
-                  src={videoSrc}
-                  type="video/mp4"
-                />
-              </motion.video>
+          {/* <AnimatePresence>
+            { ( */}
+          {/* <motion. */}
+          <video
+            ref={videoRef}
+            muted
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <source
+              src={videoSrc}
+              type="video/mp4"
+            />
+          </video>
+
+        {/* </motion.
             )}
-          </AnimatePresence>
+      </AnimatePresence> */}
 
-          <LazyVoxelDog />
+      <LazyVoxelDog />
 
-          {children}
+      {children}
 
-          {/* <Footer /> */}
-        </Container>
-      </Box>
+      {/* <Footer /> */}
+    </Container>
+      </Box >
     </>
 
   )
