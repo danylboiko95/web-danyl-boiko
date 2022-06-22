@@ -3,11 +3,12 @@
   "extends": "next",
   "rules": {
     "no-unused-vars": [
-      "warning",
+      "warn",
       {
         "argsIgnorePattern": "^_",
         "varsIgnorePattern": "^_"
       }
     ],
+    "react/display-name": 0
   }
 }
