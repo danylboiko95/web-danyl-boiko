@@ -22,7 +22,7 @@ const Main = ({ children, router }) => {
   // console.log(videoRef)
   const [currentTime, setCurrentTime] = useState(null);
   const [percent, setPercent] = useState(0);
-  const videoSrc = './videos/me.mov'
+  const videoSrc = './videos/m2.MOV'
 
   const { scrollYProgress } = useViewportScroll();
   const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
@@ -39,31 +39,32 @@ const Main = ({ children, router }) => {
     })
   }, [yRange]);
   useEffect(() => {
+    videoRef.current.autoplay = false
     setInterval(() => {
 
-      // if (typeof window !== "undefined") {
-      var h = document.documentElement,
-        b = document.body,
-        st = 'scrollTop',
-        sh = 'scrollHeight';
+      if (typeof window !== "undefined") {
+        var h = document.documentElement,
+          b = document.body,
+          st = 'scrollTop',
+          sh = 'scrollHeight';
 
-      var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
-      if (videoRef && videoRef.current && !hide) {
+        var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+        if (videoRef && videoRef.current && !hide) {
 
-        videoRef.current.currentTime = 0
+          // videoRef.current.currentTime = 0
+        }
+        if (videoRef && videoRef.current && percent && !hide) {
+
+          var seconds = videoRef.current.duration % 60
+          console.log(percent)
+          console.log(seconds, 'seconds')
+          console.log(((seconds * percent) / 100).toFixed(2), '((seconds * percent) / 100).toFixed(2)')
+
+          setPercent(percent)
+          videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
+
+        }
       }
-      if (videoRef && videoRef.current && percent && !hide) {
-
-
-        var seconds = videoRef.current.duration % 60
-        console.log(((seconds * percent) / 100).toFixed(2))
-        console.log(((seconds * percent) / 100).toFixed(2))
-
-        setPercent(percent)
-        videoRef.current.currentTime = ((seconds * percent ? percent : 1) / 100).toFixed(2)
-
-      }
-      // }
     }, 33.7);
   }, [])
 
@@ -204,9 +205,9 @@ const Main = ({ children, router }) => {
                 <video
                   ref={videoRef}
                   muted
-                  autoPlay="autoplay"
+                  autoPlay="false"
                   loop
-                  poster="./images/preview.png"
+                // poster="./images/preview.png"
                 >
                   <source
                     src={videoSrc}
