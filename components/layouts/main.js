@@ -221,6 +221,8 @@ const Main = ({ children, router }) => {
               <motion.video
                 ref={videoRef}
                 muted
+                autoPlay="autoplay"
+                loop
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
