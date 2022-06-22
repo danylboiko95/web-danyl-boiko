@@ -56,7 +56,7 @@ const Main = ({ children, router }) => {
         console.log(((seconds * percent) / 100).toFixed(2))
 
         setPercent(percent)
-        // videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
+        videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
 
       }
       // }
@@ -109,7 +109,7 @@ const Main = ({ children, router }) => {
         {/* <NavBar path={router.asPath} /> */}
 
         <Container maxW="container.md" pt={14}>
-          {/* <Particles
+          <Particles
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
@@ -213,44 +213,30 @@ const Main = ({ children, router }) => {
               strokeDasharray="0 1"
               animate={{ pathLength: isComplete ? 1 : 0 }}
             />
-          </svg> */}
+          </svg>
 
 
-          {/* <AnimatePresence>
-            { ( */}
-          {/* <motion. */}
-          {/* <video
-            ref={videoRef}
-            muted
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <source
-              src={videoSrc}
-              type="video/mp4"
-            />
-          </video> */}
-          <video
-            ref={videoRef}
-            muted
-            playsinline
-            preload="yes"
-            autoPlay
-          >
-            <source
-              src='https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_30mb.mp4'
-              type="video/mp4"
-            />
-          </video>
-
-          {/* </motion.
+          <AnimatePresence>
+            {(!hide &&
+              <motion.video
+                ref={videoRef}
+                muted
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                poster="./images/danylboiko.jpg"
+              >
+                <source
+                  src={videoSrc}
+                  type="video/mp4"
+                />
+              </motion.video>
             )}
-      </AnimatePresence> */}
+          </AnimatePresence>
 
-          {/* <LazyVoxelDog /> */}
+          <LazyVoxelDog />
 
-          {/* {children} */}
+          {children}
 
           {/* <Footer /> */}
         </Container>
