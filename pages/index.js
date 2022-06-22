@@ -136,7 +136,7 @@ const Home = () => {
           display='flex'
           flexDirection='column'
           justifyContent='center'
-          bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+          // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
           css={{
             backdropFilter: 'blur(5px)',
             scrollSnapAlign: 'start'
