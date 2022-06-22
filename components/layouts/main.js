@@ -206,7 +206,7 @@ const Main = ({ children, router }) => {
                   muted
                   autoPlay="autoplay"
                   loop
-                  poster="./images/danylboiko.jpg"
+                  poster="./images/preview.png"
                 >
                   <source
                     src={videoSrc}
