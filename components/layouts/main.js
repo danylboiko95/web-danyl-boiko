@@ -17,6 +17,7 @@ const LazyVoxelDog = dynamic(() => import('../voxel-dog'), {
 const Main = ({ children, router }) => {
   const [isComplete, setIsComplete] = useState(false);
   const [hide, setHide] = useState(false);
+  const [autoplay, setAutoplay] = useState(true);
   const videoRef = useRef()
 
   // console.log(videoRef)
@@ -39,6 +40,7 @@ const Main = ({ children, router }) => {
     })
   }, [yRange]);
   useEffect(() => {
+    setAutoplay(false)
     setInterval(() => {
 
       if (typeof window !== "undefined") {
@@ -205,9 +207,9 @@ const Main = ({ children, router }) => {
                 <video
                   ref={videoRef}
                   muted
-                  autoPlay="false"
+                  autoPlay={autoplay}
                   loop
-                // poster="./images/preview.png"
+                  poster="./images/preview.png"
                 >
                   <source
                     src={videoSrc}
