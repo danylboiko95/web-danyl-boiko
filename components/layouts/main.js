@@ -234,6 +234,7 @@ const Main = ({ children, router }) => {
           <video
             ref={videoRef}
             muted
+            playsinline
           >
             <source
               src='https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_30mb.mp4'
