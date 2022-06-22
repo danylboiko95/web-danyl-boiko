@@ -225,6 +225,7 @@ const Main = ({ children, router }) => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 poster="./images/danylboiko.jpg"
+                controls
               >
                 <source
                   src={videoSrc}
