@@ -235,7 +235,6 @@ const Main = ({ children, router }) => {
             ref={videoRef}
             muted
             playsinline
-            controls
             preload="yes"
           >
             <source
