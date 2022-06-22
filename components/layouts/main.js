@@ -236,7 +236,7 @@ const Main = ({ children, router }) => {
             muted
           >
             <source
-              src={videoSrc}
+              src='https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_30mb.mp4'
               type="video/mp4"
             />
           </video>
