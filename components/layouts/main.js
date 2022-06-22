@@ -56,7 +56,7 @@ const Main = ({ children, router }) => {
         console.log(((seconds * percent) / 100).toFixed(2))
 
         setPercent(percent)
-        videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
+        // videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
 
       }
       // }
@@ -236,6 +236,7 @@ const Main = ({ children, router }) => {
             muted
             playsinline
             preload="yes"
+            autoPlay
           >
             <source
               src='https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_30mb.mp4'
