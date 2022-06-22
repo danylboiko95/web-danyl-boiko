@@ -7,10 +7,6 @@ import VoxelDogLoader from '../voxel-dog-loader'
 import { useViewportScroll, motion, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
-const LazyVoxelDog = dynamic(() => import('../voxel-dog'), {
-  ssr: false,
-  loading: () => <VoxelDogLoader />
-})
 
 const Main = ({ children, router }) => {
   const [isComplete, setIsComplete] = useState(false);
@@ -37,43 +33,11 @@ const Main = ({ children, router }) => {
       setIsComplete(v >= 1)
     })
   }, [yRange]);
-  useEffect(() => {
-    setAutoplay(false)
-    videoRef.current.currentTime = 1
-
-    setInterval(() => {
-
-      if (typeof window !== "undefined") {
-        var h = document.documentElement,
-          b = document.body,
-          st = 'scrollTop',
-          sh = 'scrollHeight';
-
-        var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
-        if (videoRef && videoRef.current && !hide) {
-
-          videoRef.current.currentTime = 0.01
-        }
-        if (videoRef && videoRef.current && percent && !hide) {
-
-
-          var seconds = videoRef.current.duration % 60
-          console.log(percent)
-          console.log(seconds, 'seconds')
-          console.log(((seconds * percent) / 100).toFixed(2), '((seconds * percent) / 100).toFixed(2)')
-
-          setPercent(percent)
-          videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
-
-        }
-      }
-    }, 33.7);
-  }, [])
 
   useEffect(() => {
-    console.log(percent)
+
     if (percent >= 100) {
-      console.log('hi')
+
       window.scrollTo(0, 0)
       setHide(true)
     }
@@ -104,37 +68,7 @@ const Main = ({ children, router }) => {
 
         {/* <NavBar path={router.asPath} /> */}
 
-        <Container  maxW="80ch" pt={14}>
-
-
-          <AnimatePresence>
-            {(!hide &&
-              <motion.div
-                className='div-video'
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}>
-                <div style={{ color: 'white', margin: '0 auto', textAlign: 'center', fontSize: '30px' }}>
-                  scroll me
-                </div>
-                <video
-                  ref={videoRef}
-                  muted
-                  autoPlay={true}
-                  loop
-                // poster="./images/preview.png"
-                >
-                  <source
-                    src={videoSrc}
-                    type="video/mp4"
-                  />
-                </video>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <LazyVoxelDog />
-
+        <Container>
           {children}
 
           {/* <Footer /> */}

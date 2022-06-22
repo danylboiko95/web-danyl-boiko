@@ -17,10 +17,10 @@ export const DogContainer = forwardRef(({ children }, ref) => (
     ref={ref}
     className="voxel-dog"
     m="auto"
-    mt={['-20px', '-60px', '-120px']}
-    mb={['-40px', '-140px', '-200px']}
-    w={[80, 480, 640]}
-    h={[80, 480, 640]}
+    mt={['0px', '-0px', '-0px']}
+    mb={['-10px', '-35px', '-50px']}
+    w={[80, 120, 160]}
+    h={[80, 120, 160]}
     position="relative"
   >
     {children}
@@ -30,7 +30,7 @@ export const DogContainer = forwardRef(({ children }, ref) => (
 const Loader = () => {
   return (
     <DogContainer>
-      <DogSpinner />
+      {/* <DogSpinner /> */}
     </DogContainer>
   )
 }

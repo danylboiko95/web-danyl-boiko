@@ -12,6 +12,7 @@ import {
   chakra
 } from '@chakra-ui/react'
 
+import VoxelDogLoader from '../components/voxel-dog-loader'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
@@ -23,66 +24,174 @@ import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from 'react-icons/io5'
 // import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png'
 import Image from 'next/image'
 import ParticlesBackground from '../components/particle'
+import dynamic from 'next/dynamic'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
 
+const LazyVoxelDog = dynamic(() => import('../components/voxel-dog'), {
+  ssr: false,
+  loading: () => <VoxelDogLoader />
+})
+console.log(LazyVoxelDog)
 const ProfileImage = chakra(Image, {
   shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
 })
 
 const Home = () => {
+
+  const [isComplete, setIsComplete] = useState(false);
+  const [hide, setHide] = useState(false);
+  const [autoplay, setAutoplay] = useState(true);
+  const videoRef = useRef()
+
+  // console.log(videoRef)
+  const [currentTime, setCurrentTime] = useState(null);
+  const [percent, setPercent] = useState(0);
+  const videoSrc = './videos/m2.MOV'
+  useEffect(() => {
+
+    if (percent >= 100) {
+
+      window.scrollTo(0, 0)
+      setHide(true)
+    }
+  }, [percent])
+  useEffect(() => {
+    setAutoplay(false)
+    // videoRef.current.currentTime = 1
+
+    setInterval(() => {
+
+      if (typeof window !== "undefined") {
+        var h = document.documentElement,
+          b = document.body,
+          st = 'scrollTop',
+          sh = 'scrollHeight';
+
+        var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+        if (videoRef && videoRef.current && !hide) {
+
+          videoRef.current.currentTime = 0.01
+        }
+        if (videoRef && videoRef.current && percent && !hide) {
+
+
+          var seconds = videoRef.current.duration % 60
+          setPercent(percent)
+
+          videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
+
+        }
+      }
+    }, 33.7);
+  }, [])
   return (
     <Layout>
-      <Container>
+
+
+
+
+        {(!hide &&
+          <motion.div
+            className='div-video'
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}>
+            <div style={{ color: 'white', margin: '0 auto', textAlign: 'center', fontSize: '30px' }}>
+              scroll me
+            </div>
+            <video
+              ref={videoRef}
+              muted
+              autoPlay={true}
+              loop
+            // poster="./images/preview.png"
+            >
+              <source
+                src={videoSrc}
+                type="video/mp4"
+              />
+            </video>
+          </motion.div>
+        )}
+
+      {!hide && <Box height='5999px' />}
+
+
+
+
+      {hide && <Container
+
+        css={{
+          scrollSnapType: 'y mandatory',
+          overflowY: 'scroll',
+          height: '100vh'
+        }}>
         <Box
           borderRadius="lg"
           mb={6}
           p={3}
           textAlign="center"
+          display='flex'
+          flexDirection='column'
+          justifyContent='center'
           bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-          css={{ backdropFilter: 'blur(5px)' }}
+          css={{
+            backdropFilter: 'blur(5px)',
+            scrollSnapAlign: 'start'
+          }}
+          height={'100vh'}
+          width={'100vw'}
+          fontSize={30}
         >
           Hello, I&apos;m a software developer from Ukraine 🇺🇦
+          <LazyVoxelDog />
+
         </Box>
 
-        <Box display={{ md: 'flex' }}
+        <Box
           borderRadius="lg"
           mb={6}
           p={3}
-          bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-          css={{ backdropFilter: 'blur(5px)' }}>
+          display='flex'
+          flexDirection='column'
+          justifyContent='center'
+          alignItems='center'
+          // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+          css={{
+            backdropFilter: 'blur(5px)',
+            scrollSnapAlign: 'start'
+          }}
+
+          height={'100vh'}>
 
           <ParticlesBackground id='3' />
-          <Box flexGrow={1} >
+          <Box >
             <Heading as="h2" variant="page-title">
               Danyl Boiko
             </Heading>
             <p>Software developer</p>
           </Box>
-          <Box
-            flexShrink={0}
-            mt={{ base: 4, md: 0 }}
-            ml={{ md: 6 }}
-            textAlign="center"
-          >
 
-            <Box
-              borderColor="whiteAlpha.800"
-              borderWidth={2}
-              borderStyle="solid"
-              w="100px"
-              h="100px"
-              display="inline-block"
+          <Box
+            borderColor="whiteAlpha.800"
+            borderWidth={2}
+            borderStyle="solid"
+            w="100px"
+            h="100px"
+            display="inline-block"
+            borderRadius="full"
+            overflow="hidden"
+          >
+            <ProfileImage
+              src="/images/danylboiko.jpg"
+              alt="Profile image"
               borderRadius="full"
-              overflow="hidden"
-            >
-              <ProfileImage
-                src="/images/danylboiko.jpg"
-                alt="Profile image"
-                borderRadius="full"
-                width="100%"
-                height="100%"
-              />
-            </Box>
+              width="100%"
+              height="100%"
+            />
+
           </Box>
         </Box>
 
@@ -91,8 +200,11 @@ const Home = () => {
             borderRadius="lg"
             mb={6}
             p={3}
-            bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-            css={{ backdropFilter: 'blur(5px)' }}>
+            // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+            css={{
+              backdropFilter: 'blur(5px)',
+              scrollSnapAlign: 'start'
+            }}>
 
             <ParticlesBackground id="4" />
             <Heading as="h3" variant="section-title">
@@ -123,8 +235,11 @@ const Home = () => {
             borderRadius="lg"
             mb={6}
             p={3}
-            bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-            css={{ backdropFilter: 'blur(5px)' }}>
+            // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+            css={{
+              backdropFilter: 'blur(5px)',
+              scrollSnapAlign: 'start'
+            }}>
 
             <ParticlesBackground id='1' />
 
@@ -164,7 +279,7 @@ const Home = () => {
             borderRadius="lg"
             mb={6}
             p={3}
-            bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+            // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
             css={{ backdropFilter: 'blur(5px)' }}>
             <ParticlesBackground id='2' />
             <Heading as="h3" variant="section-title">
@@ -197,7 +312,7 @@ const Home = () => {
           </Box>
         </Section>
       </Container>
-    </Layout >
+      }    </Layout >
   )
 }
 
