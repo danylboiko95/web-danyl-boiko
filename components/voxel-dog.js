@@ -93,7 +93,7 @@ const VoxelDog = () => {
 
         if (frame <= 100) {
           const p = initialCameraPosition
-          const rotSpeed = -easeOutCirc(frame / 120) * Math.PI
+          const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 10
 
           camera.position.y = 10
           camera.position.x =

@@ -18,7 +18,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
-    "three": "^0.139.2"
+    "react-tsparticles": "^2.1.0",
+    "three": "^0.139.2",
+    "tsparticles": "^2.1.0"
   },
   "devDependencies": {
     "eslint": "8.18.0",

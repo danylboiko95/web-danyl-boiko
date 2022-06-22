@@ -34,14 +34,19 @@ const Home = () => (
         mb={6}
         p={3}
         textAlign="center"
-        bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
-        css={{ backdropFilter: 'blur(10px)' }}
+        bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+        css={{ backdropFilter: 'blur(5px)' }}
       >
         Hello, I&apos;m an software developer from Ukraine 🇺🇦
       </Box>
 
-      <Box display={{ md: 'flex' }}>
-        <Box flexGrow={1}>
+      <Box display={{ md: 'flex' }}
+        borderRadius="lg"
+        mb={6}
+        p={3}
+        bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+        css={{ backdropFilter: 'blur(5px)' }}>
+        <Box flexGrow={1} >
           <Heading as="h2" variant="page-title">
             Danyl Boiko
           </Heading>
@@ -74,58 +79,75 @@ const Home = () => (
         </Box>
       </Box>
 
-      <Section delay={0.1}>
-        <Heading as="h3" variant="section-title">
-          Work
-        </Heading>
-        <Paragraph>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-          industry&apos;s standard dummy text
-          ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-          to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting
-          , remaining essentially unchanged. It was popularised in the 1960s
-          with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-          like Aldus PageMaker including versions of Lorem Ipsum
-        </Paragraph>
-        <Box align="center" my={4}>
-          <NextLink href="/" passHref scroll={false}>
-            <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
-              My portfolio
-            </Button>
-          </NextLink>
+      <Section delay={0.1} >
+        <Box
+          borderRadius="lg"
+          mb={6}
+          p={3}
+          bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+          css={{ backdropFilter: 'blur(5px)' }}>
+
+          <Heading as="h3" variant="section-title">
+            Work
+          </Heading>
+          <Paragraph>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry&apos;s standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+            to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting
+            , remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+            like Aldus PageMaker including versions of Lorem Ipsum
+          </Paragraph>
+          <Box align="center" my={4}>
+            <NextLink href="/" passHref scroll={false}>
+              <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
+                My portfolio
+              </Button>
+            </NextLink>
+          </Box>
         </Box>
+
       </Section>
 
       <Section delay={0.2}>
-        <Heading as="h3" variant="section-title">
-          Bio
-        </Heading>
-        <BioSection>
-          <BioYear>1995</BioYear>
-          Born in Kharkiv, Ukraine.
-        </BioSection>
-        <BioSection>
-          <BioYear>Nov 2015</BioYear>
-          As a 3D’s Max artist I had a huge experience related not only for 3D’s Max but for additional fields.
-          As a TeamLead, Mentor, Project Manager. For part time I was a tutor in 3D max.
-          Also had a small experience with Unreal Engine.
-        </BioSection>
-        <BioSection>
-          <BioYear>Mar 2017</BioYear>
-          Full-stack developer - TEAMinterantional, Ukraine
-          The previous project was a backend on C# Web.api,
-          front end on Angular.js, the database on MSSQL, the cloud environment on AZURE.
-          Main project was related to improvement of ecology based on blockchain technology with own tokens and work with Metamask.
-          Also was two MVP projects.
-        </BioSection>
-        <BioSection>
-          <BioYear>Feb 2019</BioYear>
-          High loaded 2D/3D charts created by WebAssembly
-        </BioSection>
-        <BioSection>
-          <BioYear>Dec 2020 </BioYear>
-          World leaders in predicting and improving ad effectiveness
-        </BioSection>
+
+        <Box
+          borderRadius="lg"
+          mb={6}
+          p={3}
+          bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+          css={{ backdropFilter: 'blur(5px)' }}>
+          <Heading as="h3" variant="section-title">
+            Bio
+          </Heading>
+          <BioSection>
+            <BioYear>1995</BioYear>
+            Born in Kharkiv, Ukraine.
+          </BioSection>
+          <BioSection>
+            <BioYear>Nov 2015</BioYear>
+            As a 3D’s Max artist I had a huge experience related not only for 3D’s Max but for additional fields.
+            As a TeamLead, Mentor, Project Manager. For part time I was a tutor in 3D max.
+            Also had a small experience with Unreal Engine.
+          </BioSection>
+          <BioSection>
+            <BioYear>Mar 2017</BioYear>
+            Full-stack developer - TEAMinterantional, Ukraine
+            The previous project was a backend on C# Web.api,
+            front end on Angular.js, the database on MSSQL, the cloud environment on AZURE.
+            Main project was related to improvement of ecology based on blockchain technology with own tokens and work with Metamask.
+            Also was two MVP projects.
+          </BioSection>
+          <BioSection>
+            <BioYear>Feb 2019</BioYear>
+            High loaded 2D/3D charts created by WebAssembly
+          </BioSection>
+          <BioSection>
+            <BioYear>Dec 2020 </BioYear>
+            World leaders in predicting and improving ad effectiveness
+          </BioSection>
+        </Box>
       </Section>
       <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
@@ -156,10 +178,9 @@ const Home = () => (
           </ListItem>
         </List>
 
-       
       </Section>
     </Container>
-  </Layout>
+  </Layout >
 )
 
 export default Home
