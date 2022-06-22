@@ -39,7 +39,6 @@ const Main = ({ children, router }) => {
     })
   }, [yRange]);
   useEffect(() => {
-    videoRef.current.autoplay = false
     setInterval(() => {
 
       if (typeof window !== "undefined") {
@@ -54,6 +53,7 @@ const Main = ({ children, router }) => {
           // videoRef.current.currentTime = 0
         }
         if (videoRef && videoRef.current && percent && !hide) {
+          videoRef.current.autoplay = false
 
           var seconds = videoRef.current.duration % 60
           console.log(percent)
