@@ -6,14 +6,25 @@
   width: 120px;
   height: 120px;
 }
+.div-video{
+    position: fixed;
+z-index: 999999;
+    background: rgb(0, 0, 0);
+    height: 101vh;
+    opacity: 1;
 
+    width: 101vw;
+    top: 0;
+    left: 0;
+}
 video{
     margin: 0 auto;
     position: fixed;
     z-index: 9999;
-    width: 50vw;
-    height: 50vh;
+    /* width: 100vw; */
+    height: 100vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: black;
 }

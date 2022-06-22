@@ -48,6 +48,10 @@ const Main = ({ children, router }) => {
         sh = 'scrollHeight';
 
       var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+      if (videoRef && videoRef.current && !hide) {
+
+        videoRef.current.currentTime = 0
+      }
       if (videoRef && videoRef.current && percent && !hide) {
 
 
@@ -56,7 +60,7 @@ const Main = ({ children, router }) => {
         console.log(((seconds * percent) / 100).toFixed(2))
 
         setPercent(percent)
-        videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
+        videoRef.current.currentTime = ((seconds * percent ? percent : 1) / 100).toFixed(2)
 
       }
       // }
@@ -109,7 +113,7 @@ const Main = ({ children, router }) => {
         {/* <NavBar path={router.asPath} /> */}
 
         <Container maxW="container.md" pt={14}>
-          <Particles
+          {(hide && <Particles
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
@@ -186,53 +190,30 @@ const Main = ({ children, router }) => {
               },
               detectRetina: true,
             }}
-          />
-
-          <svg className='progress-icon' viewBox="0 0 60 60">
-            <motion.path
-              fill="none"
-              strokeWidth="5"
-              stroke="white"
-              strokeDasharray="0 1"
-              d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,1"
-              style={{
-                pathLength,
-                rotate: 90,
-                translateX: 5,
-                translateY: 5,
-                scaleX: -1 // Reverse direction of line animation
-              }}
-            />
-
-            <motion.path
-              fill="none"
-              strokeWidth="5"
-              stroke="white"
-              d="M14,26 L 22,33 L 35,16"
-              initial={false}
-              strokeDasharray="0 1"
-              animate={{ pathLength: isComplete ? 1 : 0 }}
-            />
-          </svg>
+          />)}
 
 
           <AnimatePresence>
             {(!hide &&
-              <motion.video
-                ref={videoRef}
-                muted
-                autoPlay="autoplay"
-                loop
+              <motion.div
+                className='div-video'
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                poster="./images/danylboiko.jpg"
-              >
-                <source
-                  src={videoSrc}
-                  type="video/mp4"
-                />
-              </motion.video>
+                exit={{ opacity: 0 }}>
+
+                <video
+                  ref={videoRef}
+                  muted
+                  autoPlay="autoplay"
+                  loop
+                  poster="./images/danylboiko.jpg"
+                >
+                  <source
+                    src={videoSrc}
+                    type="video/mp4"
+                  />
+                </video>
+              </motion.div>
             )}
           </AnimatePresence>
 
