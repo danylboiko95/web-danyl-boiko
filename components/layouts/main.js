@@ -6,8 +6,8 @@ import { Box, Container } from '@chakra-ui/react'
 import VoxelDogLoader from '../voxel-dog-loader'
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { useViewportScroll, motion, useSpring, useTransform } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useViewportScroll, motion, useSpring, useTransform, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 const LazyVoxelDog = dynamic(() => import('../voxel-dog'), {
   ssr: false,
@@ -16,11 +16,61 @@ const LazyVoxelDog = dynamic(() => import('../voxel-dog'), {
 
 const Main = ({ children, router }) => {
   const [isComplete, setIsComplete] = useState(false);
+  const [hide, setHide] = useState(false);
+  const videoRef = useRef()
+
+  // console.log(videoRef)
+  const [currentTime, setCurrentTime] = useState(null);
+  const [percent, setPercent] = useState(0);
+  const videoSrc = './videos/me.mov'
 
   const { scrollYProgress } = useViewportScroll();
   const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
   const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
-  useEffect(() => yRange.onChange(v => setIsComplete(v >= 1)), [yRange]);
+  useEffect(() => {
+    yRange.onChange(v => {
+      if (videoRef && videoRef.current) {
+
+        var minutes = parseInt(videoRef.current.duration / 60, 10);
+        var seconds = videoRef.current.duration % 60
+        const onePercent = (seconds / 100)
+      }
+      setIsComplete(v >= 1)
+    })
+  }, [yRange]);
+  useEffect(() => {
+    setInterval(() => {
+
+      if (typeof window !== "undefined") {
+        var h = document.documentElement,
+          b = document.body,
+          st = 'scrollTop',
+          sh = 'scrollHeight';
+
+        var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+        if (videoRef && videoRef.current && percent && !hide) {
+
+
+          var seconds = videoRef.current.duration % 60
+          // console.log(percent)
+
+          setPercent(percent)
+          videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
+
+        }
+      }
+    }, 33.7);
+  }, [])
+
+  useEffect(() => {
+    console.log(percent)
+    if (percent >= 100) {
+      console.log('hi')
+      window.scrollTo(0, 0)
+      setHide(true)
+    }
+  }, [percent])
+
   const particlesInit = async (main) => {
     console.log(main);
 
@@ -58,7 +108,7 @@ const Main = ({ children, router }) => {
         {/* <NavBar path={router.asPath} /> */}
 
         <Container maxW="container.md" pt={14}>
-          <Particles
+          {/* <Particles
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
@@ -135,15 +185,15 @@ const Main = ({ children, router }) => {
               },
               detectRetina: true,
             }}
-          />
+          /> */}
 
-          <svg className='progress-icon' viewBox="0 0 60 60">
+          {/* <svg className='progress-icon' viewBox="0 0 60 60">
             <motion.path
               fill="none"
               strokeWidth="5"
               stroke="white"
               strokeDasharray="0 1"
-              d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
+              d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,1"
               style={{
                 pathLength,
                 rotate: 90,
@@ -162,8 +212,28 @@ const Main = ({ children, router }) => {
               strokeDasharray="0 1"
               animate={{ pathLength: isComplete ? 1 : 0 }}
             />
-          </svg>
-          <LazyVoxelDog />
+          </svg> */}
+          {/* {!hide && <video ref={videoRef} muted >
+          </video>} */}
+
+          <AnimatePresence>
+            {!hide && (
+              <motion.video
+                ref={videoRef}
+                muted
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <source
+                  src={videoSrc}
+                  type="video/mp4"
+                />
+              </motion.video>
+            )}
+          </AnimatePresence>
+
+          {/* <LazyVoxelDog /> */}
 
           {children}
 
