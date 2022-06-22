@@ -109,7 +109,7 @@ const Main = ({ children, router }) => {
         {/* <NavBar path={router.asPath} /> */}
 
         <Container maxW="container.md" pt={14}>
-          <Particles
+          {/* <Particles
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
@@ -213,7 +213,7 @@ const Main = ({ children, router }) => {
               strokeDasharray="0 1"
               animate={{ pathLength: isComplete ? 1 : 0 }}
             />
-          </svg>
+          </svg> */}
 
 
           {/* <AnimatePresence>
@@ -231,17 +231,26 @@ const Main = ({ children, router }) => {
               type="video/mp4"
             />
           </video>
+          <video
+            ref={videoRef}
+            muted
+          >
+            <source
+              src={videoSrc}
+              type="video/mp4"
+            />
+          </video>
 
-        {/* </motion.
+          {/* </motion.
             )}
       </AnimatePresence> */}
 
-      <LazyVoxelDog />
+          {/* <LazyVoxelDog /> */}
 
-      {children}
+          {/* {children} */}
 
-      {/* <Footer /> */}
-    </Container>
+          {/* <Footer /> */}
+        </Container>
       </Box >
     </>
 
