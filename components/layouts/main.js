@@ -207,7 +207,7 @@ const Main = ({ children, router }) => {
                 <video
                   ref={videoRef}
                   muted
-                  autoPlay={autoplay}
+                  autoPlay={true}
                   loop
                   poster="./images/preview.png"
                 >
