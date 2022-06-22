@@ -4,8 +4,6 @@ import dynamic from 'next/dynamic'
 import { Box, Container } from '@chakra-ui/react'
 // import Footer from '../footer'
 import VoxelDogLoader from '../voxel-dog-loader'
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
 import { useViewportScroll, motion, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
@@ -81,21 +79,10 @@ const Main = ({ children, router }) => {
     }
   }, [percent])
 
-  const particlesInit = async (main) => {
-    console.log(main);
-
-    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
-    await loadFull(main);
-  };
-  const particlesLoaded = () => {
-    console.log('hi')
-  }
   return (
     <>
 
-      <Box as="main" pb={8}>
+      <Box as="main" pb={1}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="Danyl Boiko homepage" />
@@ -117,85 +104,7 @@ const Main = ({ children, router }) => {
 
         {/* <NavBar path={router.asPath} /> */}
 
-        <Container maxW="container.md" pt={14}>
-          {(hide && <Particles
-            id="tsparticles"
-            init={particlesInit}
-            loaded={particlesLoaded}
-            options={{
-              background: {
-                color: {
-                  // value: "#cfcfcf",
-                  value: "#cfcfcf",
-                },
-              },
-              fpsLimit: 120,
-              interactivity: {
-                events: {
-                  onClick: {
-                    enable: true,
-                    mode: "push",
-                  },
-                  onHover: {
-                    enable: true,
-                    mode: "repulse",
-                  },
-                  resize: true,
-                },
-                modes: {
-                  push: {
-                    quantity: 4,
-                  },
-                  repulse: {
-                    distance: 100,
-                    duration: 0.4,
-                  },
-                },
-              },
-              particles: {
-                color: {
-                  value: "#202023",
-                },
-                links: {
-                  color: "#000000",
-                  distance: 150,
-                  enable: true,
-                  opacity: 0.5,
-                  width: 1,
-                },
-                collisions: {
-                  enable: true,
-                },
-                move: {
-                  direction: "none",
-                  enable: true,
-                  outModes: {
-                    default: "bounce",
-                  },
-                  random: false,
-                  speed: 1,
-                  straight: false,
-                },
-                number: {
-                  density: {
-                    enable: true,
-                    area: 800,
-                  },
-                  value: 80,
-                },
-                opacity: {
-                  value: 0.5,
-                },
-                shape: {
-                  type: "circle",
-                },
-                size: {
-                  value: { min: 1, max: 5 },
-                },
-              },
-              detectRetina: true,
-            }}
-          />)}
+        <Container  maxW="80ch" pt={14}>
 
 
           <AnimatePresence>
@@ -205,13 +114,15 @@ const Main = ({ children, router }) => {
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}>
-
+                <div style={{ color: 'white', margin: '0 auto', textAlign: 'center', fontSize: '30px' }}>
+                  scroll me
+                </div>
                 <video
                   ref={videoRef}
                   muted
                   autoPlay={true}
                   loop
-                  // poster="./images/preview.png"
+                // poster="./images/preview.png"
                 >
                   <source
                     src={videoSrc}
