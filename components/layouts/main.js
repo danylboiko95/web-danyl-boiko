@@ -41,7 +41,7 @@ const Main = ({ children, router }) => {
   useEffect(() => {
     setInterval(() => {
 
-      if (typeof window !== "undefined") {
+      // if (typeof window !== "undefined") {
         var h = document.documentElement,
           b = document.body,
           st = 'scrollTop',
@@ -59,7 +59,7 @@ const Main = ({ children, router }) => {
           videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
 
         }
-      }
+      // }
     }, 33.7);
   }, [])
 
