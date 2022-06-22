@@ -219,7 +219,7 @@ const Main = ({ children, router }) => {
           {/* <AnimatePresence>
             { ( */}
           {/* <motion. */}
-          <video
+          {/* <video
             ref={videoRef}
             muted
             initial={{ opacity: 1 }}
@@ -230,11 +230,13 @@ const Main = ({ children, router }) => {
               src={videoSrc}
               type="video/mp4"
             />
-          </video>
+          </video> */}
           <video
             ref={videoRef}
             muted
             playsinline
+            controls
+            preload="yes"
           >
             <source
               src='https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_30mb.mp4'
