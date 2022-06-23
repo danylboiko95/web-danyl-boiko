@@ -180,7 +180,7 @@ const Home = () => {
               animate="enter"
               exit="exit"
               variants={variants}
-              transition={{ duration: 1, delay: 0.5, type: 'easeInOut' }}
+              transition={{ duration: 1, delay: 1, type: 'easeInOut' }}
               style={{ position: 'relative' }}
             >
               <Box
