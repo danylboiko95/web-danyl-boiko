@@ -9,7 +9,8 @@ import {
   List,
   ListItem,
   useColorModeValue,
-  chakra
+  chakra,
+  useMediaQuery
 } from '@chakra-ui/react'
 
 import VoxelDogLoader from '../components/voxel-dog-loader'
@@ -59,6 +60,7 @@ const Home = () => {
   const [percent, setPercent] = useState(0);
   const videoSrc = './videos/m2.MOV'
 
+  const [isLessThan600] = useMediaQuery('(max-width: 600px)')
   const variants = {
     hidden: { opacity: 0, y: 0 },
     enter: { opacity: 1, y: 0 },
@@ -67,13 +69,24 @@ const Home = () => {
   useEffect(() => {
 
     if (percent >= 95) {
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        window.scrollTo(0, 0)
+
+      }, 300)
+
+      setHide(true)
+    }
+    console.log(percent)
+    if (percent >= 95.0001) {
       setTimeout(() => {
 
         window.scrollTo(0, 0)
-      }, 500)
-      setHide(true)
+        document.body.style.overflow = 'auto'
+      }, 1000)
     }
   }, [percent])
+
   useEffect(() => {
     setAutoplay(false)
     // videoRef.current.currentTime = 1
@@ -107,14 +120,11 @@ const Home = () => {
   const topVideoTransForm = 90
   return (
     <Layout>
-
-
-      {!hide && <Box height='5999px' />}
-
+      {!hide && <Box height='4000' />}
       <Container
         css={{
-          scrollSnapType: 'y ',
-          overflowY: 'scroll',
+          scrollSnapType: isLessThan600 ? 'y ' : 'none',
+          overflowY: isLessThan600 ? 'scroll' : 'none',
           height: '100vh'
         }}
         color={'white'}>
@@ -156,9 +166,6 @@ const Home = () => {
                     type="video/mp4"
                   />
                 </video>
-
-                {percent.toFixed(2)}%{' '}
-
               </Box>
             </>)
         }
@@ -170,7 +177,7 @@ const Home = () => {
               animate="enter"
               exit="exit"
               variants={variants}
-              transition={{ duration: 1.5, type: 'easeInOut' }}
+              transition={{ duration: 1, delay: 0.5, type: 'easeInOut' }}
               style={{ position: 'relative' }}
             >
               <Box
@@ -212,7 +219,11 @@ const Home = () => {
                     height="100%"
                   />
                 </Box>
-                <ParticlesBackground id='5' isFullSize/>
+                <Box
+                  position='absolute'>
+
+                  <ParticlesBackground id='5' />
+                </Box>
 
               </Box>
             </motion.article>
@@ -247,7 +258,7 @@ const Home = () => {
                 backdropFilter: 'blur(5px)',
                 // scrollSnapAlign: 'start'
               }}>
-                <ParticlesBackground id='4' />
+              <ParticlesBackground id='4' />
 
               <Heading as="h3" variant="section-title">
                 Work
@@ -278,7 +289,7 @@ const Home = () => {
                 backdropFilter: 'blur(5px)',
                 // scrollSnapAlign: 'start'
               }}>
-                <ParticlesBackground id='2' />
+              <ParticlesBackground id='2' />
 
               <Heading as="h3" variant="section-title">
                 About my experience
