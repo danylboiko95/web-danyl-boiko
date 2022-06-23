@@ -226,140 +226,141 @@ const Home = () => {
                 </Box>
 
               </Box>
-            </motion.article>
-            <Box
-              borderRadius="lg"
-              p={3}
-              textAlign="center"
-              display='flex'
-              flexDirection='column'
-              justifyContent='center'
-              // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-              css={{
-                // scrollSnapAlign: 'start'
-              }}
-              height={'100vh'}
-              fontSize={'2.0rem'}
-              color={'white'}
-            >
-              Hello, I&apos;m a software developer from Ukraine 🇺🇦
-              <LazyVoxelDog />
+              <Box
+                borderRadius="lg"
+                p={3}
+                textAlign="center"
+                display='flex'
+                flexDirection='column'
+                justifyContent='center'
+                // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+                css={{
+                  // scrollSnapAlign: 'start'
+                }}
+                height={'100vh'}
+                fontSize={'2.0rem'}
+                color={'white'}
+              >
+                Hello, I&apos;m a software developer from Ukraine 🇺🇦
+                <LazyVoxelDog />
 
-            </Box>
-
-
-
-            <Box
-              borderRadius="lg"
-              mb={6}
-              p={3}
-              // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-              css={{
-                backdropFilter: 'blur(5px)',
-                // scrollSnapAlign: 'start'
-              }}>
-              <ParticlesBackground id='4' />
-
-              <Heading as="h3" variant="section-title">
-                Work
-              </Heading>
-              <Paragraph>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry&apos;s standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting
-                , remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum
-              </Paragraph>
-              <Box align="center" my={4}>
-                <NextLink href="/" passHref scroll={false}>
-                  <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
-                    My portfolio
-                  </Button>
-                </NextLink>
               </Box>
-            </Box>
-            <Box
-              borderRadius="lg"
-              mb={6}
-              p={3}
-              // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-              css={{
-                backdropFilter: 'blur(5px)',
-                // scrollSnapAlign: 'start'
-              }}>
-              <ParticlesBackground id='2' />
 
-              <Heading as="h3" variant="section-title">
-                About my experience
-              </Heading>
-              <BioSection>
-                <BioYear>1995</BioYear>
-                Born in Kharkiv, Ukraine.
-              </BioSection>
-              <BioSection>
-                <BioYear>Nov 2015</BioYear>
-                As a 3D’s Max artist I had a huge experience related not only for 3D’s Max but for additional fields.
-                As a TeamLead, Mentor, Project Manager. For part time I was a tutor in 3D max.
-                Also had a small experience with Unreal Engine.
-              </BioSection>
-              <BioSection>
-                <BioYear>Mar 2017</BioYear>
-                Full-stack developer - TEAMinterantional, Ukraine
-                The previous project was a backend on C# Web.api,
-                front end on Angular.js, the database on MSSQL, the cloud environment on AZURE.
-                Main project was related to improvement of ecology based on blockchain technology with own tokens and work with Metamask.
-                Also was two MVP projects.
-              </BioSection>
-              <BioSection>
-                <BioYear>Feb 2019</BioYear>
-                High loaded 2D/3D charts created by WebAssembly
-              </BioSection>
-              <BioSection>
-                <BioYear>Dec 2020 </BioYear>
-                World leaders in predicting and improving ad effectiveness
-              </BioSection>
-            </Box>
 
-            <Section delay={0.3}>
+
               <Box
                 borderRadius="lg"
                 mb={6}
                 p={3}
                 // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-                css={{ backdropFilter: 'blur(5px)' }}>
-                <ParticlesBackground id='1' />
+                css={{
+                  backdropFilter: 'blur(5px)',
+                  // scrollSnapAlign: 'start'
+                }}>
+                <ParticlesBackground id='4' />
 
                 <Heading as="h3" variant="section-title">
-                  On the web
+                  Work
                 </Heading>
-                <List>
-                  <ListItem>
-                    <Link href="https://github.com/danylboiko95" target="_blank">
-                      <Button
-                        variant="ghost"
-                        colorScheme="teal"
-                        leftIcon={<IoLogoGithub />}
-                      >
-                        @danylboiko95
-                      </Button>
-                    </Link>
-                  </ListItem>
-                  <ListItem>
-                    <Link href="https://instagram.com/danyl_boiko" target="_blank">
-                      <Button
-                        variant="ghost"
-                        colorScheme="teal"
-                        leftIcon={<IoLogoInstagram />}
-                      >
-                        @danyl_boiko
-                      </Button>
-                    </Link>
-                  </ListItem>
-                </List>
+                <Paragraph>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry&apos;s standard dummy text
+                  ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                  to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting
+                  , remaining essentially unchanged. It was popularised in the 1960s
+                  with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum
+                </Paragraph>
+                <Box align="center" my={4}>
+                  <NextLink href="/" passHref scroll={false}>
+                    <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
+                      My portfolio
+                    </Button>
+                  </NextLink>
+                </Box>
               </Box>
-            </Section>
+              <Box
+                borderRadius="lg"
+                mb={6}
+                p={3}
+                // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+                css={{
+                  backdropFilter: 'blur(5px)',
+                  // scrollSnapAlign: 'start'
+                }}>
+                <ParticlesBackground id='2' />
+
+                <Heading as="h3" variant="section-title">
+                  About my experience
+                </Heading>
+                <BioSection>
+                  <BioYear>1995</BioYear>
+                  Born in Kharkiv, Ukraine.
+                </BioSection>
+                <BioSection>
+                  <BioYear>Nov 2015</BioYear>
+                  As a 3D’s Max artist I had a huge experience related not only for 3D’s Max but for additional fields.
+                  As a TeamLead, Mentor, Project Manager. For part time I was a tutor in 3D max.
+                  Also had a small experience with Unreal Engine.
+                </BioSection>
+                <BioSection>
+                  <BioYear>Mar 2017</BioYear>
+                  Full-stack developer - TEAMinterantional, Ukraine
+                  The previous project was a backend on C# Web.api,
+                  front end on Angular.js, the database on MSSQL, the cloud environment on AZURE.
+                  Main project was related to improvement of ecology based on blockchain technology with own tokens and work with Metamask.
+                  Also was two MVP projects.
+                </BioSection>
+                <BioSection>
+                  <BioYear>Feb 2019</BioYear>
+                  High loaded 2D/3D charts created by WebAssembly
+                </BioSection>
+                <BioSection>
+                  <BioYear>Dec 2020 </BioYear>
+                  World leaders in predicting and improving ad effectiveness
+                </BioSection>
+              </Box>
+
+              <Section delay={0.3}>
+                <Box
+                  borderRadius="lg"
+                  mb={6}
+                  p={3}
+                  // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+                  css={{ backdropFilter: 'blur(5px)' }}>
+                  <ParticlesBackground id='1' />
+
+                  <Heading as="h3" variant="section-title">
+                    On the web
+                  </Heading>
+                  <List>
+                    <ListItem>
+                      <Link href="https://github.com/danylboiko95" target="_blank">
+                        <Button
+                          variant="ghost"
+                          colorScheme="teal"
+                          leftIcon={<IoLogoGithub />}
+                        >
+                          @danylboiko95
+                        </Button>
+                      </Link>
+                    </ListItem>
+                    <ListItem>
+                      <Link href="https://instagram.com/danyl_boiko" target="_blank">
+                        <Button
+                          variant="ghost"
+                          colorScheme="teal"
+                          leftIcon={<IoLogoInstagram />}
+                        >
+                          @danyl_boiko
+                        </Button>
+                      </Link>
+                    </ListItem>
+                  </List>
+                </Box>
+              </Section>
+            </motion.article>
+
           </>
         }
       </Container>
