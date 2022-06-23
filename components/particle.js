@@ -54,10 +54,12 @@ const ParticlesBackground = ({ id, isFullSize = false }) => {
             },
             particles: {
                 color: {
-                    value: "#a0a0a3",
+                    value: "#ffffff",
+                    opacity: 0.5,
+                    width: 1,
                 },
                 links: {
-                    color: "#b3b3b3",
+                    color: "#aaaaaa",
                     distance: 150,
                     enable: true,
                     opacity: 0.5,
@@ -72,7 +74,7 @@ const ParticlesBackground = ({ id, isFullSize = false }) => {
                     outModes: {
                         default: "bounce",
                     },
-                    random: false,
+                    random: true,
                     speed: 1,
                     straight: false,
                 },

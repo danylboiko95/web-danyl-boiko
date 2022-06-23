@@ -192,7 +192,7 @@ const Home = () => {
                 alignItems='center'
                 // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
                 css={{
-                  background: '#000000',
+                  // background: '#000000',
                   // scrollSnapAlign: 'start'
                 }}
                 height={'100vh'}>
@@ -223,9 +223,9 @@ const Home = () => {
                   />
                 </Box>
                 <Box
-                  position='absolute'>
+                  position='absolute' height="100vh" zIndex='-9999'>
 
-                  <ParticlesBackground id='5' />
+                  <ParticlesBackground id='5' isFullSize />
                 </Box>
 
               </Box>
