@@ -25,8 +25,9 @@ import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from 'react-icons/io5'
 import Image from 'next/image'
 import ParticlesBackground from '../components/particle'
 import dynamic from 'next/dynamic'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 
 const LazyVoxelDog = dynamic(() => import('../components/voxel-dog'), {
@@ -40,6 +41,14 @@ const ProfileImage = chakra(Image, {
 
 const Home = () => {
 
+
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
   const [isComplete, setIsComplete] = useState(false);
   const [hide, setHide] = useState(false);
   const [autoplay, setAutoplay] = useState(true);
@@ -49,11 +58,19 @@ const Home = () => {
   const [currentTime, setCurrentTime] = useState(null);
   const [percent, setPercent] = useState(0);
   const videoSrc = './videos/m2.MOV'
+
+  const variants = {
+    hidden: { opacity: 0, y: 0 },
+    enter: { opacity: 1, y: 0 },
+  }
+
   useEffect(() => {
 
     if (percent >= 95) {
+      setTimeout(() => {
 
-      window.scrollTo(0, 0)
+        window.scrollTo(0, 0)
+      }, 500)
       setHide(true)
     }
   }, [percent])
@@ -103,94 +120,102 @@ const Home = () => {
         color={'white'}>
 
         {
-          !hide && (<>
+          !hide && (
+            <>
+              <Box
+                // className='div-video'
+                css={{
+                  position: 'fixed',
+                  zIndex: '999999',
+                  background: '#000000',
+                  height: '100vh',
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  top: percent >= topVideoTransForm
+                    ? `-${(((percent - topVideoTransForm) * 100 / (100 - topVideoTransForm))).toFixed(2)}%`
+                    : '0',
+                  left: 0,
+                }}>
 
-            <Box
-              // className='div-video'
-              css={{
-                position: 'fixed',
-                zIndex: '999999',
-                background: '#000000',
-                height: '100vh',
-                width: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                top: percent >= topVideoTransForm
-                  ? `-${(((percent - topVideoTransForm) * 100 / (100 - topVideoTransForm))).toFixed(2)}%`
-                  : '0',
-                left: 0,
-              }}>
+                <video
+                  ref={videoRef}
+                  muted
+                  autoPlay={true}
+                  loop
+                  // poster="./images/preview.png"
+                  style={{
+                    top: percent >= 80
+                      ? `${50 - (((percent - 80) * 100 / (100 - 80))).toFixed(2)}%`
+                      : '50%',
+                  }}
+                >
+                  <source
+                    src={videoSrc}
+                    type="video/mp4"
+                  />
+                </video>
 
-              <video
-                ref={videoRef}
-                muted
-                autoPlay={true}
-                loop
-                // poster="./images/preview.png"
-                style={{
-                  top: percent >= 80
-                    ? `${50 - (((percent - 80) * 100 / (100 - 80))).toFixed(2)}%`
-                    : '50%',
-                }}
-              >
-                <source
-                  src={videoSrc}
-                  type="video/mp4"
-                />
-              </video>
+                {percent.toFixed(2)}%{' '}
 
-              {percent.toFixed(2)}%{' '}
-
-            </Box>
-          </>)
+              </Box>
+            </>)
         }
 
         {hide &&
           <>
-            <Box
-              borderRadius="lg"
-              p={3}
-              display='flex'
-              flexDirection='column'
-              justifyContent='center'
-              alignItems='center'
-              // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-              css={{
-                background: '#000000',
-                scrollSnapAlign: 'start'
-              }}
-
-
-              height={'100vh'}>
-              <Box textAlign='center'>
-                <Heading as="h2" variant="page-title">
-                  Danyl Boiko
-                </Heading>
-                <p>Software developer</p>
-              </Box>
-
+            <motion.article
+              initial="hidden"
+              animate="enter"
+              exit="exit"
+              variants={variants}
+              transition={{ duration: 1.5, type: 'easeInOut' }}
+              style={{ position: 'relative' }}
+            >
               <Box
-                borderColor="whiteAlpha.800"
-                borderWidth={2}
-                borderStyle="solid"
-                w="100px"
-                h="100px"
-                display="inline-block"
-                borderRadius="full"
-                overflow="hidden"
-              >
-                <ProfileImage
-                  src="/images/danylboiko.jpg"
-                  alt="Profile image"
+                borderRadius="lg"
+                p={3}
+                display='flex'
+                flexDirection='column'
+                justifyContent='center'
+                alignItems='center'
+                // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+                css={{
+                  background: '#000000',
+                  scrollSnapAlign: 'start'
+                }}
+                height={'100vh'}>
+
+                <Box textAlign='center'>
+                  <Heading as="h2" variant="page-title">
+                    Danyl Boiko
+                  </Heading>
+                  <p>Software developer</p>
+                </Box>
+
+                <Box
+                  borderColor="whiteAlpha.800"
+                  borderWidth={2}
+                  borderStyle="solid"
+                  w="100px"
+                  h="100px"
+                  display="inline-block"
                   borderRadius="full"
-                  width="100%"
-                  height="100%"
-                />
+                  overflow="hidden"
+                >
+                  <ProfileImage
+                    src="/images/danylboiko.jpg"
+                    alt="Profile image"
+                    borderRadius="full"
+                    width="100%"
+                    height="100%"
+                  />
+                </Box>
+                <ParticlesBackground id='5' isFullSize/>
 
               </Box>
-            </Box>
-
+            </motion.article>
             <Box
               borderRadius="lg"
               p={3}
@@ -200,7 +225,7 @@ const Home = () => {
               justifyContent='center'
               // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
               css={{
-                scrollSnapAlign: 'start'
+                // scrollSnapAlign: 'start'
               }}
               height={'100vh'}
               fontSize={'2.0rem'}
@@ -211,6 +236,8 @@ const Home = () => {
 
             </Box>
 
+
+
             <Box
               borderRadius="lg"
               mb={6}
@@ -218,8 +245,9 @@ const Home = () => {
               // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
               css={{
                 backdropFilter: 'blur(5px)',
-                scrollSnapAlign: 'start'
+                // scrollSnapAlign: 'start'
               }}>
+                <ParticlesBackground id='4' />
 
               <Heading as="h3" variant="section-title">
                 Work
@@ -241,9 +269,6 @@ const Home = () => {
                 </NextLink>
               </Box>
             </Box>
-
-
-
             <Box
               borderRadius="lg"
               mb={6}
@@ -251,8 +276,9 @@ const Home = () => {
               // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
               css={{
                 backdropFilter: 'blur(5px)',
-                scrollSnapAlign: 'start'
+                // scrollSnapAlign: 'start'
               }}>
+                <ParticlesBackground id='2' />
 
               <Heading as="h3" variant="section-title">
                 About my experience
@@ -292,7 +318,7 @@ const Home = () => {
                 p={3}
                 // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
                 css={{ backdropFilter: 'blur(5px)' }}>
-              <ParticlesBackground id='1' />
+                <ParticlesBackground id='1' />
 
                 <Heading as="h3" variant="section-title">
                   On the web

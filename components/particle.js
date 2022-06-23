@@ -1,7 +1,7 @@
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
-const ParticlesBackground = ({ id }) => {
+const ParticlesBackground = ({ id, isFullSize = false }) => {
 
 
     const particlesInit = async (main) => {
@@ -21,7 +21,7 @@ const ParticlesBackground = ({ id }) => {
         loaded={particlesLoaded}
         options={{
             fullScreen: {
-                enable: false
+                enable: isFullSize
             },
             background: {
                 color: {
