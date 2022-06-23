@@ -112,7 +112,7 @@ const Home = () => {
                 zIndex: '999999',
                 background: '#000000',
                 height: '100vh',
-                width: '100vw',
+                width: '100%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -150,7 +150,6 @@ const Home = () => {
           <>
             <Box
               borderRadius="lg"
-              mb={6}
               p={3}
               display='flex'
               flexDirection='column'
@@ -194,7 +193,6 @@ const Home = () => {
 
             <Box
               borderRadius="lg"
-              mb={6}
               p={3}
               textAlign="center"
               display='flex'
@@ -205,7 +203,6 @@ const Home = () => {
                 scrollSnapAlign: 'start'
               }}
               height={'100vh'}
-              width={'100vw'}
               fontSize={'2.0rem'}
               color={'white'}
             >
