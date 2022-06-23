@@ -128,8 +128,8 @@ const Home = () => {
       {!hide && <Box height='4000' />}
       <Container
         css={{
-          scrollSnapType: isLessThan600 ? 'y ' : 'none',
-          overflowY: isLessThan600 ? 'scroll' : 'none',
+          scrollSnapType: !isLessThan600 ? 'y ' : 'none',
+          overflowY: !isLessThan600 ? 'scroll' : 'none',
           height: '100vh'
         }}
         color={'white'}>
@@ -326,44 +326,54 @@ const Home = () => {
                 </BioSection>
               </Box>
 
-              <Section>
-                <Box
-                  borderRadius="lg"
-                  mb={6}
-                  p={3}
-                  // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-                  css={{ backdropFilter: 'blur(5px)' }}>
-                  <ParticlesBackground id='1' />
 
-                  <Heading as="h3" variant="section-title">
-                    On the web
-                  </Heading>
-                  <List>
-                    <ListItem>
-                      <Link href="https://github.com/danylboiko95" target="_blank">
-                        <Button
-                          variant="ghost"
-                          colorScheme="teal"
-                          leftIcon={<IoLogoGithub />}
-                        >
-                          @danylboiko95
-                        </Button>
-                      </Link>
-                    </ListItem>
-                    <ListItem>
-                      <Link href="https://instagram.com/danyl_boiko" target="_blank">
-                        <Button
-                          variant="ghost"
-                          colorScheme="teal"
-                          leftIcon={<IoLogoInstagram />}
-                        >
-                          @danyl_boiko
-                        </Button>
-                      </Link>
-                    </ListItem>
-                  </List>
-                </Box>
-              </Section>
+              <motion.article
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                variants={variants}
+                transition={{ duration: 1, delay: 1, type: 'easeInOut' }}
+                style={{ position: 'relative' }}
+              >
+                <Section>
+                  <Box
+                    borderRadius="lg"
+                    mb={6}
+                    p={3}
+                    // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+                    css={{ backdropFilter: 'blur(5px)' }}>
+                    <ParticlesBackground id='1' />
+
+                    <Heading as="h3" variant="section-title">
+                      On the web
+                    </Heading>
+                    <List>
+                      <ListItem>
+                        <Link href="https://github.com/danylboiko95" target="_blank">
+                          <Button
+                            variant="ghost"
+                            colorScheme="teal"
+                            leftIcon={<IoLogoGithub />}
+                          >
+                            @danylboiko95
+                          </Button>
+                        </Link>
+                      </ListItem>
+                      <ListItem>
+                        <Link href="https://instagram.com/danyl_boiko" target="_blank">
+                          <Button
+                            variant="ghost"
+                            colorScheme="teal"
+                            leftIcon={<IoLogoInstagram />}
+                          >
+                            @danyl_boiko
+                          </Button>
+                        </Link>
+                      </ListItem>
+                    </List>
+                  </Box>
+                </Section>
+              </motion.article>
             </motion.article>
 
           </>
