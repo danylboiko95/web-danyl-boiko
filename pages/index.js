@@ -82,6 +82,11 @@ const Home = () => {
       setTimeout(() => {
 
         window.scrollTo(0, 0)
+
+      }, 500)
+      setTimeout(() => {
+
+        window.scrollTo(0, 0)
         document.body.style.overflow = 'auto'
       }, 1000)
     }
@@ -321,7 +326,7 @@ const Home = () => {
                 </BioSection>
               </Box>
 
-              <Section delay={0.3}>
+              <Section>
                 <Box
                   borderRadius="lg"
                   mb={6}
