@@ -128,8 +128,6 @@ const Home = () => {
       {!hide && <Box height='4000' />}
       <Container
         css={{
-          scrollSnapType: !isLessThan600 ? 'y ' : 'none',
-          overflowY: !isLessThan600 ? 'scroll' : 'none',
           height: '100vh'
         }}
         color={'white'}>
@@ -195,7 +193,7 @@ const Home = () => {
                 // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
                 css={{
                   background: '#000000',
-                  scrollSnapAlign: 'start'
+                  // scrollSnapAlign: 'start'
                 }}
                 height={'100vh'}>
 
