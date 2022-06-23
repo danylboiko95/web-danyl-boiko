@@ -164,7 +164,7 @@ const Home = () => {
 
 
               height={'100vh'}>
-              <Box >
+              <Box textAlign='center'>
                 <Heading as="h2" variant="page-title">
                   Danyl Boiko
                 </Heading>
@@ -224,7 +224,6 @@ const Home = () => {
                 scrollSnapAlign: 'start'
               }}>
 
-              <ParticlesBackground id="4" />
               <Heading as="h3" variant="section-title">
                 Work
               </Heading>
@@ -257,8 +256,6 @@ const Home = () => {
                 backdropFilter: 'blur(5px)',
                 scrollSnapAlign: 'start'
               }}>
-
-              <ParticlesBackground id='1' />
 
               <Heading as="h3" variant="section-title">
                 About my experience
@@ -298,7 +295,8 @@ const Home = () => {
                 p={3}
                 // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
                 css={{ backdropFilter: 'blur(5px)' }}>
-                <ParticlesBackground id='2' />
+              <ParticlesBackground id='1' />
+
                 <Heading as="h3" variant="section-title">
                   On the web
                 </Heading>
