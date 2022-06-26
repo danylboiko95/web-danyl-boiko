@@ -53,6 +53,7 @@ const Home = () => {
     }
   }, [controls, inView]);
   const [isComplete, setIsComplete] = useState(false);
+  const [text, setText] = useState('Scroll me');
   const [hide, setHide] = useState(false);
   const [autoplay, setAutoplay] = useState(true);
   const videoRef = useRef()
@@ -112,12 +113,21 @@ const Home = () => {
           videoRef.current.currentTime = 0.01
         }
         if (videoRef && videoRef.current && percent && !hide) {
-
-
           var seconds = videoRef.current.duration % 60
           setPercent(percent)
-
           videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
+          if (percent <= 10) {
+            setText('hi')
+          }
+          if (percent > 10 && percent <= 25) {
+            setText('hi')
+          }
+          if (percent > 25 && percent <= 75) {
+            setText('how are you')
+          }
+          if (percent > 75) {
+            setText('it`s good')
+          }
 
         }
       }
@@ -153,7 +163,21 @@ const Home = () => {
                     : '0',
                   left: 0,
                 }}>
-
+                <Box
+                  color={'white'}
+                  position="absolute"
+                  zIndex={99999}
+                  css={{
+                    top: percent >= 80
+                      ? `${20 - (((percent - 80) * 100 / (100 - 80))).toFixed(2)}%`
+                      : '20%',
+                  }}
+                  backgroundColor="#02D948"
+                  padding="6px 10px"
+                  borderRadius="10px"
+                >
+                  {text}
+                </Box>
                 <video
                   ref={videoRef}
                   muted
@@ -187,7 +211,7 @@ const Home = () => {
               style={{ position: 'relative' }}
 
             >
-            <Logo />
+              <Logo />
 
               <Box
                 borderRadius="lg"

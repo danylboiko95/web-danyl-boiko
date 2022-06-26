@@ -26,7 +26,7 @@ const DynamicText = () => {
                 Danyl Boiko
             </Heading>
             <Heading as="h2" >
-                <Box color={'yellow'} display={{ base: 'inline-block' }} ref={el}></Box>
+                <Box color={'blue'} display={{ base: 'inline-block' }} ref={el}></Box>
                 <Box display={{ base: 'block', md: 'inline-block' }} >
                     developer
                 </Box>
