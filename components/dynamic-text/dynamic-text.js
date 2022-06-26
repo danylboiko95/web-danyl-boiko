@@ -14,8 +14,7 @@ const DynamicText = () => {
 
     useEffect(() => {
         const typed = new Typed(el.current, {
-            strings: ["React", "Node.JS", "Full-stack", "Software"], // Strings to display
-            // Speed settings, try diffrent values untill you get good results
+            strings: ["React", "Node.JS", "Full-stack", "Software"], 
             startDelay: 300,
             typeSpeed: 200,
             backSpeed: 100,
