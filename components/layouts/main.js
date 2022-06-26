@@ -3,45 +3,13 @@ import dynamic from 'next/dynamic'
 // import NavBar from '../navbar'
 import { Box, Container } from '@chakra-ui/react'
 // import Footer from '../footer'
-import VoxelDogLoader from '../voxel-dog-loader'
+import VoxelDogLoader from '../computer-loader'
 import { useViewportScroll, motion, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import styled from '@emotion/styled';
 
 
-const Main = ({ children, router }) => {
-  const [isComplete, setIsComplete] = useState(false);
-  const [hide, setHide] = useState(false);
-  const [autoplay, setAutoplay] = useState(true);
-  const videoRef = useRef()
-
-  // console.log(videoRef)
-  const [currentTime, setCurrentTime] = useState(null);
-  const [percent, setPercent] = useState(0);
-  const videoSrc = './videos/m2.MOV'
-
-  const { scrollYProgress } = useViewportScroll();
-  const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
-  const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
-  useEffect(() => {
-    yRange.onChange(v => {
-      if (videoRef && videoRef.current) {
-
-        var minutes = parseInt(videoRef.current.duration / 60, 10);
-        var seconds = videoRef.current.duration % 60
-        const onePercent = (seconds / 100)
-      }
-      setIsComplete(v >= 1)
-    })
-  }, [yRange]);
-
-  useEffect(() => {
-
-    if (percent >= 100) {
-
-      window.scrollTo(0, 0)
-      setHide(true)
-    }
-  }, [percent])
+const Main = ({ children }) => {
 
   return (
     <>

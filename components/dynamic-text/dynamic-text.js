@@ -1,12 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react"
-import styled from '@emotion/styled'
 import Typed from 'typed.js';
 import { useEffect, useRef } from "react";
-
-
-export const ProgrammingText = styled.span`
-    color: #fefe22
-`
 
 
 const DynamicText = () => {
@@ -14,7 +8,7 @@ const DynamicText = () => {
 
     useEffect(() => {
         const typed = new Typed(el.current, {
-            strings: ["React", "Node.JS", "Full-stack", "Software"], 
+            strings: ["React", "Node.JS", "Full-stack", "Software"],
             startDelay: 300,
             typeSpeed: 200,
             backSpeed: 100,
@@ -31,8 +25,11 @@ const DynamicText = () => {
             <Heading as="h1" fontSize='35px' variant="page-title">
                 Danyl Boiko
             </Heading>
-            <Heading as="h2" fontSize='35px' variant="page-title">
-                <ProgrammingText ref={el}></ProgrammingText> developer
+            <Heading as="h2" >
+                <Box color={'yellow'} display={{ base: 'inline-block' }} ref={el}></Box>
+                <Box display={{ base: 'block', md: 'inline-block' }} >
+                    developer
+                </Box>
             </Heading>
         </Box>)
 }

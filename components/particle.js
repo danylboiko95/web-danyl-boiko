@@ -25,7 +25,6 @@ const ParticlesBackground = ({ id, isFullSize = false }) => {
             },
             background: {
                 color: {
-                    // value: "#cfcfcf",
                     value: "transparent",
                 },
             },
@@ -53,14 +52,13 @@ const ParticlesBackground = ({ id, isFullSize = false }) => {
                 },
             },
             particles: {
+                enable: false,
                 color: {
-                    value: "#ffffff",
-                    opacity: 0.5,
-                    width: 1,
+                    value: "#000000",
                 },
                 links: {
                     color: "#aaaaaa",
-                    distance: 150,
+                    distance: 200,
                     enable: true,
                     opacity: 0.5,
                     width: 1,

@@ -13,7 +13,7 @@ import {
   useMediaQuery
 } from '@chakra-ui/react'
 
-import VoxelDogLoader from '../components/voxel-dog-loader'
+import VoxelDogLoader from '../components/computer-loader'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
@@ -30,13 +30,14 @@ import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import DynamicText from '../components/dynamic-text/dynamic-text'
+import Logo from '../components/logo/logo'
 
 
-const LazyVoxelDog = dynamic(() => import('../components/voxel-dog'), {
+const LazyComputer = dynamic(() => import('../components/computer-dog'), {
   ssr: false,
   loading: () => <VoxelDogLoader />
 })
-console.log(LazyVoxelDog)
+console.log(LazyComputer)
 const ProfileImage = chakra(Image, {
   shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
 })
@@ -131,7 +132,7 @@ const Home = () => {
           height: '100vh'
         }}
         color={'white'}>
-{/* 
+
         {
           !hide && (
             <>
@@ -140,7 +141,7 @@ const Home = () => {
                 // className='div-video'
                 css={{
                   position: 'fixed',
-                  zIndex: '999999',
+                  zIndex: '999',
                   background: '#000000',
                   height: '100vh',
                   width: '100%',
@@ -172,10 +173,11 @@ const Home = () => {
                 </video>
               </Box>
             </>)
-        } */}
+        }
 
-        {!hide &&
+        {hide &&
           <>
+
             <motion.article
               initial="hidden"
               animate="enter"
@@ -183,7 +185,10 @@ const Home = () => {
               variants={variants}
               transition={{ duration: 1, delay: 1, type: 'easeInOut' }}
               style={{ position: 'relative' }}
+
             >
+            <Logo />
+
               <Box
                 borderRadius="lg"
                 p={3}
@@ -191,17 +196,16 @@ const Home = () => {
                 flexDirection='column'
                 justifyContent='center'
                 alignItems='center'
-                // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-                css={{
-                  // background: '#000000',
-                  // scrollSnapAlign: 'start'
-                }}
-                height={'100vh'}>
-                <DynamicText />
+                height={'100vh'}
 
+                css={{
+                  // backdropFilter: 'blur(5px)',
+                }}
+              >
+                <DynamicText />
                 <Box
-                  borderColor="whiteAlpha.800"
-                  borderWidth={2}
+                  borderColor="#3e3e3e"
+                  borderWidth={1}
                   borderStyle="solid"
                   w="150px"
                   h="150px"
@@ -218,12 +222,12 @@ const Home = () => {
                     height="150px"
                   />
                 </Box>
-                <Box
-                  position='absolute' height="100vh" zIndex='-9999'>
 
-                  <ParticlesBackground id='5' isFullSize />
-                </Box>
+              </Box>
+              <Box
+                position='absolute' height="100vh" zIndex='-9999'>
 
+                <ParticlesBackground id='5' isFullSize />
               </Box>
               <Box
                 borderRadius="lg"
@@ -234,14 +238,14 @@ const Home = () => {
                 justifyContent='center'
                 // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
                 css={{
-                  // scrollSnapAlign: 'start'
+                  // backdropFilter: 'blur(5px)',
                 }}
                 height={'100vh'}
                 fontSize={'2.0rem'}
                 color={'white'}
               >
                 Hello, I&apos;m a software developer from Ukraine 🇺🇦
-                <LazyVoxelDog />
+                <LazyComputer />
 
               </Box>
 
@@ -253,7 +257,7 @@ const Home = () => {
                 p={3}
                 // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
                 css={{
-                  backdropFilter: 'blur(5px)',
+                  // backdropFilter: 'blur(5px)',
                   // scrollSnapAlign: 'start'
                 }}>
 
@@ -281,10 +285,8 @@ const Home = () => {
                 borderRadius="lg"
                 mb={6}
                 p={3}
-                // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
                 css={{
-                  backdropFilter: 'blur(5px)',
-                  // scrollSnapAlign: 'start'
+                  // backdropFilter: 'blur(5px)',
                 }}>
 
                 <Heading as="h3" variant="section-title">
@@ -332,8 +334,9 @@ const Home = () => {
                     borderRadius="lg"
                     mb={6}
                     p={3}
-                    // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
-                    css={{ backdropFilter: 'blur(5px)' }}>
+                  // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
+                  // css={{ backdropFilter: 'blur(5px)' }}
+                  >
 
                     <Heading as="h3" variant="section-title">
                       On the web
