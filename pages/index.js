@@ -29,6 +29,7 @@ import dynamic from 'next/dynamic'
 import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
+import DynamicText from '../components/dynamic-text/dynamic-text'
 
 
 const LazyVoxelDog = dynamic(() => import('../components/voxel-dog'), {
@@ -125,16 +126,16 @@ const Home = () => {
   const topVideoTransForm = 90
   return (
     <Layout>
-      {!hide && <Box height='4000' />}
       <Container
         css={{
           height: '100vh'
         }}
         color={'white'}>
-
+{/* 
         {
           !hide && (
             <>
+              <Box height='4000' />
               <Box
                 // className='div-video'
                 css={{
@@ -171,9 +172,9 @@ const Home = () => {
                 </video>
               </Box>
             </>)
-        }
+        } */}
 
-        {hide &&
+        {!hide &&
           <>
             <motion.article
               initial="hidden"
@@ -196,30 +197,25 @@ const Home = () => {
                   // scrollSnapAlign: 'start'
                 }}
                 height={'100vh'}>
-
-                <Box textAlign='center'>
-                  <Heading as="h2" variant="page-title">
-                    Danyl Boiko
-                  </Heading>
-                  <p>Software developer</p>
-                </Box>
+                <DynamicText />
 
                 <Box
                   borderColor="whiteAlpha.800"
                   borderWidth={2}
                   borderStyle="solid"
-                  w="100px"
-                  h="100px"
+                  w="150px"
+                  h="150px"
                   display="inline-block"
                   borderRadius="full"
                   overflow="hidden"
+                  marginTop={10}
                 >
                   <ProfileImage
                     src="/images/danylboiko.jpg"
                     alt="Profile image"
                     borderRadius="full"
-                    width="100%"
-                    height="100%"
+                    width="150px"
+                    height="150px"
                   />
                 </Box>
                 <Box
@@ -260,7 +256,6 @@ const Home = () => {
                   backdropFilter: 'blur(5px)',
                   // scrollSnapAlign: 'start'
                 }}>
-                <ParticlesBackground id='4' />
 
                 <Heading as="h3" variant="section-title">
                   Work
@@ -291,7 +286,6 @@ const Home = () => {
                   backdropFilter: 'blur(5px)',
                   // scrollSnapAlign: 'start'
                 }}>
-                <ParticlesBackground id='2' />
 
                 <Heading as="h3" variant="section-title">
                   About my experience
@@ -340,7 +334,6 @@ const Home = () => {
                     p={3}
                     // bg={useColorModeValue('whiteAlpha.300', 'whiteAlpha.200')}
                     css={{ backdropFilter: 'blur(5px)' }}>
-                    <ParticlesBackground id='1' />
 
                     <Heading as="h3" variant="section-title">
                       On the web

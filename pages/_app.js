@@ -7,7 +7,7 @@ import '../styles/main.css';
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual'
 }
-console.log('render')
+
 function Website({ Component, pageProps, router }) {
   return (
     <Chakra cookies={pageProps.cookies}>

@@ -25,6 +25,7 @@
     "react-tsparticles": "^2.1.0",
     "three": "^0.139.2",
     "tsparticles": "^2.1.0",
+    "typed.js": "^2.0.12",
     "video.js": "7.6.6"
   },
   "devDependencies": {

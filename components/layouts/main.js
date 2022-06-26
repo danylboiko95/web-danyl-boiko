@@ -45,7 +45,6 @@ const Main = ({ children, router }) => {
 
   return (
     <>
-
       <Box as="main" pb={1}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
