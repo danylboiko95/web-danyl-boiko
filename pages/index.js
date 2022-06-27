@@ -13,7 +13,7 @@ import {
   useMediaQuery
 } from '@chakra-ui/react'
 
-import VoxelDogLoader from '../components/computer-loader'
+import VoxelComputerLoader from '../components/computer-loader'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
@@ -27,7 +27,7 @@ import Image from 'next/image'
 import ParticlesBackground from '../components/particle'
 import dynamic from 'next/dynamic'
 import { AnimatePresence, motion, useAnimation } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import DynamicText from '../components/dynamic-text/dynamic-text'
 import Logo from '../components/logo/logo'
@@ -35,7 +35,7 @@ import Logo from '../components/logo/logo'
 
 const LazyComputer = dynamic(() => import('../components/computer-dog'), {
   ssr: false,
-  loading: () => <VoxelDogLoader />
+  loading: () => <VoxelComputerLoader />
 })
 console.log(LazyComputer)
 const ProfileImage = chakra(Image, {
@@ -54,6 +54,7 @@ const Home = () => {
   }, [controls, inView]);
   const [isComplete, setIsComplete] = useState(false);
   const [text, setText] = useState('Scroll me');
+  const [isTextHidden, setIsTextHidden] = useState(false);
   const [hide, setHide] = useState(false);
   const [autoplay, setAutoplay] = useState(true);
   const videoRef = useRef()
@@ -61,7 +62,7 @@ const Home = () => {
   // console.log(videoRef)
   const [currentTime, setCurrentTime] = useState(null);
   const [percent, setPercent] = useState(0);
-  const videoSrc = './videos/m2.MOV'
+  const videoSrc = './videos/alien.MOV'
 
   const [isLessThan600] = useMediaQuery('(max-width: 600px)')
   const variants = {
@@ -95,6 +96,12 @@ const Home = () => {
     }
   }, [percent])
 
+  const setAnimation = useCallback((percent, fromTime, toTime, isTextHidden = true, text) => {
+    if (percent > fromTime && percent < toTime) {
+      setIsTextHidden(isTextHidden)
+      setText(text)
+    }
+  }, [])
   useEffect(() => {
     setAutoplay(false)
     // videoRef.current.currentTime = 1
@@ -116,19 +123,14 @@ const Home = () => {
           var seconds = videoRef.current.duration % 60
           setPercent(percent)
           videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
-          if (percent <= 10) {
-            setText('hi')
-          }
-          if (percent > 10 && percent <= 25) {
-            setText('hi')
-          }
-          if (percent > 25 && percent <= 75) {
-            setText('how are you')
-          }
-          if (percent > 75) {
-            setText('it`s good')
-          }
-
+          setAnimation(percent, 0, 3, true)
+          setAnimation(percent, 3, 12, false, 'Oo, someone from Earth!')
+          setAnimation(percent, 12, 18, true)
+          setAnimation(percent, 18, 48, false, "You've found a developer we've been following for a long time 😈")
+          setAnimation(percent, 48, 52, true )
+          setAnimation(percent, 56, 72, false, "But for now, we have no plans to kidnap him")
+          setAnimation(percent, 72, 76, true )
+          setAnimation(percent, 76, 99, false, "So for now, you can check out his CV😊")
         }
       }
     }, 33.7);
@@ -163,21 +165,29 @@ const Home = () => {
                     : '0',
                   left: 0,
                 }}>
-                <Box
-                  color={'white'}
-                  position="absolute"
-                  zIndex={99999}
-                  css={{
-                    top: percent >= 80
-                      ? `${20 - (((percent - 80) * 100 / (100 - 80))).toFixed(2)}%`
-                      : '20%',
-                  }}
-                  backgroundColor="#02D948"
-                  padding="6px 10px"
-                  borderRadius="10px"
-                >
-                  {text}
-                </Box>
+
+                <AnimatePresence>
+                  {!isTextHidden && <motion.div
+                    initial={{ opacity: 0, y: '200%' }}
+                    transition={{ duration: 0.4, type: 'easeInOut',  }}
+                    animate={{ opacity: 1, y: '0%' }}
+                    exit={{ opacity: 0, y: '-200%' }}
+                    style={{
+                      color: "white",
+                      position: "fixed",
+                      top: percent >= 80
+                        ? `${25 - (((percent - 80) * 100 / (100 - 80))).toFixed(2)}%`
+                        : '25%',
+                      zIndex: 9999999,
+                      backgroundColor: "#02D948",
+                      padding: "6px 10px",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    {text}
+                  </motion.div>}
+                </AnimatePresence>
+
                 <video
                   ref={videoRef}
                   muted
@@ -209,7 +219,6 @@ const Home = () => {
               variants={variants}
               transition={{ duration: 1, delay: 1, type: 'easeInOut' }}
               style={{ position: 'relative' }}
-
             >
               <Logo />
 
