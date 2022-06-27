@@ -11,14 +11,14 @@ const variants = {
 const Layout = ({ children, title }) => {
   const t = `${title} - Danyl Boiko`
   return (
-    // <motion.article
-    //   initial="hidden"
-    //   animate="enter"
-    //   exit="exit"
-    //   variants={variants}
-    //   transition={{ duration: 0.4, type: 'easeInOut' }}
-    //   style={{ position: 'relative' }}
-    // >
+    <motion.article
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      variants={variants}
+      transition={{ duration: 0.4, type: 'easeInOut' }}
+      style={{ position: 'relative' }}
+    >
       <>
         {title && (
           <Head>
@@ -31,7 +31,7 @@ const Layout = ({ children, title }) => {
 
         {/* <GridItemStyle /> */}
       </>
-    // </motion.article>
+    </motion.article>
   )
 }
 

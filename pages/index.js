@@ -64,7 +64,6 @@ const Home = () => {
   const [percent, setPercent] = useState(0);
   const videoSrc = './videos/alien.MOV'
 
-  const [isLessThan600] = useMediaQuery('(max-width: 600px)')
   const variants = {
     hidden: { opacity: 0, y: 0 },
     enter: { opacity: 1, y: 0 },
@@ -104,7 +103,7 @@ const Home = () => {
   }, [])
   useEffect(() => {
     setAutoplay(false)
-    // videoRef.current.currentTime = 1
+
 
     setInterval(() => {
 
@@ -146,7 +145,6 @@ const Home = () => {
           height: '100vh'
         }}
         color={'white'}>
-
         {
           !hide && (
             <>
