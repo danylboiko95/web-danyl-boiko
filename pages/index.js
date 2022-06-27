@@ -62,7 +62,7 @@ const Home = () => {
   // console.log(videoRef)
   const [currentTime, setCurrentTime] = useState(null);
   const [percent, setPercent] = useState(0);
-  const videoSrc = './videos/alien.MOV'
+  const videoSrc = './videos/alien-video.MOV'
 
   const variants = {
     hidden: { opacity: 0, y: 0 },
