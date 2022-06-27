@@ -62,7 +62,7 @@ const Home = () => {
   // console.log(videoRef)
   const [currentTime, setCurrentTime] = useState(null);
   const [percent, setPercent] = useState(0);
-  const videoSrc = './videos/M2.MOV'
+  const videoSrc = './videos/alien.MOV'
 
   const [isLessThan600] = useMediaQuery('(max-width: 600px)')
   const variants = {
@@ -109,20 +109,21 @@ const Home = () => {
     setInterval(() => {
 
       if (typeof window !== "undefined") {
-        var h = document.documentElement,
+        const h = document.documentElement,
           b = document.body,
           st = 'scrollTop',
           sh = 'scrollHeight';
 
-        var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+        const percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
         if (videoRef && videoRef.current && !hide) {
 
           videoRef.current.currentTime = 0.01
         }
         if (videoRef && videoRef.current && percent && !hide) {
-          var seconds = videoRef.current.duration % 60
+          const seconds = videoRef.current.duration % 60
           setPercent(percent)
-          videoRef.current.currentTime = ((seconds * percent) / 100).toFixed(2)
+          const currentTime = ((seconds * percent) / 100).toFixed(2)
+          videoRef.current.currentTime = currentTime
           setAnimation(percent, 0, 3, true)
           setAnimation(percent, 3, 12, false, 'Oo, someone from Earth!')
           setAnimation(percent, 12, 18, true)
