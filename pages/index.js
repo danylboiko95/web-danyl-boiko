@@ -281,9 +281,6 @@ const Home = () => {
                 <LazyComputer />
 
               </Box>
-
-
-
               <Box
                 borderRadius="lg"
                 mb={6}
