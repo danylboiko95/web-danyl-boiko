@@ -62,7 +62,7 @@ const Home = () => {
   // console.log(videoRef)
   const [currentTime, setCurrentTime] = useState(null);
   const [percent, setPercent] = useState(0);
-  const videoSrc = './videos/alien.MOV'
+  const videoSrc = './videos/M2.MOV'
 
   const [isLessThan600] = useMediaQuery('(max-width: 600px)')
   const variants = {
