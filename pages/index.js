@@ -123,6 +123,7 @@ const Home = () => {
           const seconds = videoRef.current.duration % 60
           setPercent(percent)
           const currentTime = ((seconds * percent) / 100).toFixed(2)
+          console.log(currentTime,'currentTime')
           videoRef.current.currentTime = currentTime
           setAnimation(percent, 0, 3, true)
           setAnimation(percent, 3, 12, false, 'Oo, someone from Earth!')
