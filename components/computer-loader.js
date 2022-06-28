@@ -19,8 +19,8 @@ export const DogContainer = forwardRef(({ children }, ref) => (
     m="auto"
     mt={['0px', '-0px', '-0px']}
     mb={['-10px', '-35px', '-50px']}
-    w={[90, 120, 160]}
-    h={[90, 120, 160]}
+    w={[240]}
+    h={[240]}
     position="relative"
   >
     {children}
