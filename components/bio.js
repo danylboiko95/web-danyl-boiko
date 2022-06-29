@@ -31,14 +31,29 @@ export const BioCompany = styled.span`
     font-size: 16px;
   }
 `
-export const BioTechnologiesList = styled.ul`
-  list-style-type: none;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-`
-export const BioTechnologiesListItem = styled.li`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
+
+export const Pre = styled.pre`
+  text-align: left;
+  margin: 1em 0;
+  padding: 0.5em;
+  overflow: scroll;
+  background-color: transparent !important;
+`;
+
+export const Line = styled.div`
+  display: table-row;
+`;
+
+export const LineNo = styled.span`
+  display: table-cell;
+  text-align: right;
+  padding-right: 1.5em;
+  padding-left: 2em;
+  user-select: none;
+  opacity: 0.5;
+  margin-left: 1em;
+`;
+
+export const LineContent = styled.span`
+  display: table-cell;
+`;
