@@ -38,6 +38,12 @@ export const Pre = styled.pre`
   padding: 0.5em;
   overflow: scroll;
   background-color: transparent !important;
+
+  @media (max-width: 550px) {
+
+    padding: 0em;
+    font-size: 12px;
+  }
 `;
 
 export const Line = styled.div`
@@ -52,6 +58,10 @@ export const LineNo = styled.span`
   user-select: none;
   opacity: 0.5;
   margin-left: 1em;
+
+  @media (max-width: 550px) {
+    font-size: 0;
+  }
 `;
 
 export const LineContent = styled.span`

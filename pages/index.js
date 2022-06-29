@@ -128,7 +128,7 @@ const Home = () => {
           height: '100vh'
         }}
         color={'white'}>
-        {!showPreviewVideo
+        {showPreviewVideo
           ? (<PreviewVideo setPercent={setPercent} percent={percent} />)
           : (
             <>
@@ -273,7 +273,6 @@ const Home = () => {
                         borderRadius: '10px'
                       }}>
                       <Highlight
-
                         {...defaultProps}
                         theme={theme}
                         code={isLessThan1280 ? exampleCode : exampleCodeBig}
