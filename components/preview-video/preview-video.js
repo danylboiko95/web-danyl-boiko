@@ -7,9 +7,10 @@ const videoSrc = './videos/alien-video.MOV'
 
 const topVideoTransform = 90
 const topTextTransfrom = 25
-
+const textTip = 'Scroll me'
 const PreviewVideo = ({ setPercent, percent }) => {
-    const [text, setText] = useState('Scroll me');
+    const [text, setText] = useState(null);
+
     const [isTextHidden, setIsTextHidden] = useState(false);
 
     const videoRef = useRef()
@@ -70,30 +71,50 @@ const PreviewVideo = ({ setPercent, percent }) => {
                     : '0',
                 left: 0,
             }}>
+            {!text
+                ? (
+                    <motion.div
+                        initial={{ opacity: 0, }}
+                        transition={{ repeat: Infinity,
+                            repeatType: "reverse",
+                            duration: 2,
+                            delay: 2
+                          }}
+                        animate={{ opacity: 1, }}
+                        exit={{ opacity: 0, }}
 
-            <AnimatePresence>
-                {!isTextHidden && <motion.div
-                    initial={{ opacity: 0, y: '200%' }}
-                    transition={{ duration: 0.4, type: 'easeInOut', }}
-                    animate={{ opacity: 1, y: '0%' }}
-                    exit={{ opacity: 0, y: '-200%' }}
-                    style={{
-                        color: "white",
-                        position: "fixed",
-                        top: percent >= 80
-                            ? `${topTextTransfrom - (((percent - 80) * 100
-                                / (100 - 80))).toFixed(2)}%`
-                            : `${topTextTransfrom}%`,
-                        zIndex: 9999999,
-                        backgroundColor: "#02D948",
-                        padding: "6px 10px",
-                        borderRadius: "10px",
-                    }}
-                >
-                    {text}
-                </motion.div>}
-            </AnimatePresence>
-
+                        style={{
+                            color: "white",
+                            position: "fixed",
+                            top: '5%',
+                            zIndex: 9999999,
+                        }}
+                    >
+                        {textTip}
+                    </motion.div>
+                ) : (<AnimatePresence>
+                    {!isTextHidden && <motion.div
+                        initial={{ opacity: 0, y: '200%' }}
+                        transition={{ duration: 0.4, type: 'easeInOut', }}
+                        animate={{ opacity: 1, y: '0%' }}
+                        exit={{ opacity: 0, y: '-200%' }}
+                        style={{
+                            color: "white",
+                            position: "fixed",
+                            top: percent >= 80
+                                ? `${topTextTransfrom - (((percent - 80) * 100
+                                    / (100 - 80))).toFixed(2)}%`
+                                : `${topTextTransfrom}%`,
+                            zIndex: 9999999,
+                            backgroundColor: "#02D948",
+                            padding: "6px 10px",
+                            borderRadius: "10px",
+                        }}
+                    >
+                        {text}
+                    </motion.div>}
+                </AnimatePresence>)
+            }
             <video
                 ref={videoRef}
                 muted

@@ -16,11 +16,11 @@ import {
 import VoxelComputerLoader from '../components/computer-loader'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Paragraph from '../components/paragraph'
-import { BioSection, BioYear } from '../components/bio'
+import { BioCompany, BioHeader, BioSection, BioTechnologiesList, BioTechnologiesListItem, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 // import { GridItem } from '../components/grid-item'
-import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from 'react-icons/io5'
+import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoDownload } from 'react-icons/io5'
 // import thumbYouTube from '../public/images/links/youtube.png'
 // import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png'
 import Image from 'next/image'
@@ -101,7 +101,7 @@ const Home = () => {
                 animate="enter"
                 exit="exit"
                 variants={variants}
-                transition={{ duration: 1, type: 'easeInOut' }}
+                transition={{ duration: 1, type: 'easeInOut', delay: 1 }}
                 style={{ position: 'relative' }}
               >
 
@@ -180,13 +180,6 @@ const Home = () => {
                       with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
                       like Aldus PageMaker including versions of Lorem Ipsum
                     </Paragraph>
-                    <Box align="center" my={4}>
-                      <NextLink href="/" passHref scroll={false}>
-                        <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
-                          My portfolio
-                        </Button>
-                      </NextLink>
-                    </Box>
                   </Box>
 
                 </AnimationWrapper>
@@ -197,76 +190,242 @@ const Home = () => {
                     mb={6}
                     p={3}
                   >
-
                     <Heading as="h3" variant="section-title">
                       About my experience
                     </Heading>
                     <BioSection>
-                      <BioYear>1995</BioYear>
-                      Born in Kharkiv, Ukraine.
-                    </BioSection>
-                    <BioSection>
-                      <BioYear>Nov 2015</BioYear>
+                      <BioHeader>
+                        <BioYear>Nov 2015</BioYear>
+                        <BioCompany>Self-employed</BioCompany>
+                      </BioHeader>
                       As a 3D’s Max artist I had a huge experience related not only for 3D’s Max but for additional fields.
                       As a TeamLead, Mentor, Project Manager. For part time I was a tutor in 3D max.
                       Also had a small experience with Unreal Engine.
                     </BioSection>
                     <BioSection>
-                      <BioYear>Mar 2017</BioYear>
-                      Full-stack developer - TEAMinterantional, Ukraine
+                      <BioHeader>
+                        <BioYear>Mar 2017</BioYear>
+                        <BioCompany>Full-stack developer - TEAMinterantional, Ukraine</BioCompany>
+                      </BioHeader>
                       The previous project was a backend on C# Web.api,
                       front end on Angular.js, the database on MSSQL, the cloud environment on AZURE.
                       Main project was related to improvement of ecology based on blockchain technology with own tokens and work with Metamask.
                       Also was two MVP projects.
                     </BioSection>
                     <BioSection>
-                      <BioYear>Feb 2019</BioYear>
+                      <BioHeader>
+                        <BioYear>Feb 2019</BioYear>
+                        <BioCompany>Typescript developer - SciChart, Remote, United Kingdom</BioCompany>
+                      </BioHeader>
                       High loaded 2D/3D charts created by WebAssembly
+
+                      <BioTechnologiesList>
+                        <BioTechnologiesListItem>
+                          <Box
+                            backgroundColor={"white"}
+                            borderRadius={'50%'}
+                            display="inline-block"
+                            width={'50px'}
+                            height={'50px'}
+                          >
+                            <img src='./icons/nextjs_icon.png' />
+                          </Box>
+
+                          Next.JS
+
+                        </BioTechnologiesListItem>
+                        <BioTechnologiesListItem>
+
+                          <Box
+                            backgroundColor={"white"}
+                            borderRadius={'50%'}
+                            display="inline-block"
+                            width={'50px'}
+                            height={'50px'}
+                          >
+                            <img src='./icons/react_icon.png' />
+                          </Box>
+
+                          React.JS
+
+                        </BioTechnologiesListItem>
+                        <BioTechnologiesListItem>
+
+                          <Box
+                            backgroundColor={"white"}
+                            borderRadius={'50%'}
+                            display="inline-block"
+                            width={'50px'}
+                            height={'50px'}
+                          >
+                            <img src='./icons/react_icon.png' />
+                          </Box>
+
+                          React.JS
+
+                        </BioTechnologiesListItem>
+                        <BioTechnologiesListItem>
+
+                          <Box
+                            backgroundColor={"white"}
+                            borderRadius={'50%'}
+                            display="inline-block"
+                            width={'50px'}
+                            height={'50px'}
+                          >
+                            <img src='./icons/react_icon.png' />
+                          </Box>
+
+                          React.JS
+
+                        </BioTechnologiesListItem>
+                        <BioTechnologiesListItem>
+
+                          <Box
+                            backgroundColor={"white"}
+                            borderRadius={'50%'}
+                            display="inline-block"
+                            width={'50px'}
+                            height={'50px'}
+                          >
+                            <img src='./icons/react_icon.png' />
+                          </Box>
+
+                          React.JS
+
+                        </BioTechnologiesListItem>
+                      </BioTechnologiesList>
                     </BioSection>
                     <BioSection>
-                      <BioYear>Dec 2020 </BioYear>
+                      <BioHeader>
+                        <BioYear>Dec 2020</BioYear>
+                        <BioCompany>React developer - System1Group, Remote, United Kingdom</BioCompany>
+                      </BioHeader>
                       World leaders in predicting and improving ad effectiveness
+                      <BioTechnologiesList>
+                        <BioTechnologiesListItem>
+                          <Box
+                            backgroundColor={"white"}
+                            borderRadius={'50%'}
+                            display="inline-block"
+                            width={'50px'}
+                            height={'50px'}
+                          >
+                            <img src='./icons/nextjs_icon.png' />
+                          </Box>
+
+                          Next.JS
+
+                        </BioTechnologiesListItem>
+                        <BioTechnologiesListItem>
+
+                          <Box
+                            backgroundColor={"white"}
+                            borderRadius={'50%'}
+                            display="inline-block"
+                            width={'50px'}
+                            height={'50px'}
+                          >
+                            <img src='./icons/react_icon.png' />
+                          </Box>
+
+                          React.JS
+
+                        </BioTechnologiesListItem>
+                        <BioTechnologiesListItem>
+
+                          <Box
+                            backgroundColor={"white"}
+                            borderRadius={'50%'}
+                            display="inline-block"
+                            width={'50px'}
+                            height={'50px'}
+                          >
+                            <img src='./icons/react_icon.png' />
+                          </Box>
+
+                          React.JS
+
+                        </BioTechnologiesListItem>
+                        <BioTechnologiesListItem>
+
+                          <Box
+                            backgroundColor={"white"}
+                            borderRadius={'50%'}
+                            display="inline-block"
+                            width={'50px'}
+                            height={'50px'}
+                          >
+                            <img src='./icons/react_icon.png' />
+                          </Box>
+
+                          React.JS
+
+                        </BioTechnologiesListItem>
+                        <BioTechnologiesListItem>
+
+                          <Box
+                            backgroundColor={"white"}
+                            borderRadius={'50%'}
+                            display="inline-block"
+                            width={'50px'}
+                            height={'50px'}
+                          >
+                            <img src='./icons/react_icon.png' />
+                          </Box>
+
+                          React.JS
+
+                        </BioTechnologiesListItem>
+                      </BioTechnologiesList>
                     </BioSection>
                   </Box>
-
                 </AnimationWrapper>
 
-                <AnimationWrapper yValue={0} scale={1}>
-                  <Box
-                    borderRadius="lg"
-                    mb={6}
-                    p={3}
-                  >
-                    <Heading as="h3" variant="section-title">
-                      On the web
-                    </Heading>
-                    <List>
-                      <ListItem>
-                        <Link href="https://github.com/danylboiko95" target="_blank">
-                          <Button
-                            variant="ghost"
-                            colorScheme="teal"
-                            leftIcon={<IoLogoGithub />}
-                          >
-                            @danylboiko95
-                          </Button>
-                        </Link>
-                      </ListItem>
-                      <ListItem>
-                        <Link href="https://instagram.com/danyl_boiko" target="_blank">
-                          <Button
-                            variant="ghost"
-                            colorScheme="teal"
-                            leftIcon={<IoLogoInstagram />}
-                          >
-                            @danyl_boiko
-                          </Button>
-                        </Link>
-                      </ListItem>
-                    </List>
-                  </Box>
-
-                </AnimationWrapper>
+                <Box
+                  borderRadius="lg"
+                  mb={6}
+                  p={3}
+                >
+                  <Heading as="h3" variant="section-title">
+                    Links
+                  </Heading>
+                  <List>
+                    <ListItem>
+                      <Link href="https://github.com/danylboiko95" target="_blank">
+                        <Button
+                          variant="ghost"
+                          color={'blue'}
+                          leftIcon={<IoLogoGithub />}
+                        >
+                          @danylboiko95
+                        </Button>
+                      </Link>
+                    </ListItem>
+                    <ListItem>
+                      <Link href="https://instagram.com/danyl_boiko" target="_blank">
+                        <Button
+                          variant="ghost"
+                          color={'blue'}
+                          leftIcon={<IoLogoInstagram />}
+                        >
+                          @danyl_boiko
+                        </Button>
+                      </Link>
+                    </ListItem>
+                    <ListItem>
+                      <Link href="./pdf/Danyl_Boiko_CV.pdf" target="_blank" download>
+                        <Button
+                          variant="ghost"
+                          color={'blue'}
+                          leftIcon={<IoDownload />}
+                        >
+                          CV
+                        </Button>
+                      </Link>
+                    </ListItem>
+                  </List>
+                </Box>
               </motion.article>
             </>)
         }
