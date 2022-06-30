@@ -22,10 +22,10 @@ const DynamicText = () => {
     }, []);
     return (
         <Box textAlign='center'>
-            <Heading as="h1" fontSize='35px' variant="page-title">
+            <Heading as="h1" fontSize={{ base: "22px", md: "24px" }}>
                 Danyl Boiko
             </Heading>
-            <Heading as="h2" >
+            <Heading as="h2" fontSize={{ base: "22px", md: "24px" }}>
                 <Box
                     textShadow={'red -2px 0, cyan 2px 0'} display={{ base: 'inline-block' }} ref={el}></Box>
                 <Box display={{ base: 'block', md: 'inline-block' }} >

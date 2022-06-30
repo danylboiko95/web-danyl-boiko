@@ -6,11 +6,13 @@ export const BioSection = styled(Box)`
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  margin-bottom: 25px;
 
   @media (max-width: 460px) {
     font-size: 14px;
     padding-left: 1.4em;
     gap: 0;
+    margin-bottom: 35px;
   }
 `
 
@@ -44,6 +46,11 @@ export const BioCompanyAbout = styled.div`
   line-height: 1.2;
   margin-bottom: 10px;
   max-width: 90vw;
+  font-size: 15px;
+
+  @media (max-width: 460px) {
+    font-size: 13px;
+  }
 `
 
 export const Pre = styled.pre`

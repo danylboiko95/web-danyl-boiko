@@ -107,7 +107,7 @@ const exampleCodeBig = `{
 `;
 
 const Home = () => {
-  const [isLessThan1280] = useMediaQuery('(max-width: 1000px)')
+  const [isLessThan800] = useMediaQuery('(max-width: 800px)')
   const [showPreviewVideo, setShowPreviewVideo] = useState(false);
 
   const some = {
@@ -155,7 +155,7 @@ const Home = () => {
           height: '100vh'
         }}
         color={'white'}>
-        {showPreviewVideo
+        {!showPreviewVideo
           ? (<PreviewVideo setPercent={setPercent} percent={percent} />)
           : (
             <>
@@ -215,8 +215,8 @@ const Home = () => {
                     flexDirection='column'
                     justifyContent='center'
                     height={'100vh'}
-                    fontSize={'2.0rem'}
                     color={'white'}
+                    fontSize={{ base: "22px", md: "24px" }}
                   >
                     Hello, I&apos;m a software developer from Ukraine 🇺🇦
                     <LazyComputer />
@@ -246,12 +246,13 @@ const Home = () => {
 
                 </AnimationWrapper>
 
-                <AnimationWrapper>
-                  <Box
-                    borderRadius="lg"
-                    mb={6}
-                    p={3}
-                  >
+                <Box
+                  borderRadius="lg"
+                  mb={6}
+                  p={3}
+                >
+
+                  <AnimationWrapper>
                     <Heading as="h3" variant="section-title">
                       Journey
                     </Heading>
@@ -265,7 +266,9 @@ const Home = () => {
                         </BioCompanyAbout>
                       </BioHeader>
                     </BioSection>
+                  </AnimationWrapper>
 
+                  <AnimationWrapper>
                     <BioSection>
                       <BioYear>Feb 2019</BioYear>
                       <BioHeader>
@@ -275,7 +278,9 @@ const Home = () => {
                         </BioCompanyAbout>
                       </BioHeader>
                     </BioSection>
+                  </AnimationWrapper>
 
+                  <AnimationWrapper>
                     <BioSection>
                       <BioYear>Mar 2017</BioYear>
                       <BioHeader>
@@ -288,7 +293,9 @@ const Home = () => {
                         </BioCompanyAbout>
                       </BioHeader>
                     </BioSection>
+                  </AnimationWrapper>
 
+                  <AnimationWrapper>
                     <BioSection>
                       <BioYear>Nov 2015</BioYear>
                       <BioHeader>
@@ -301,21 +308,23 @@ const Home = () => {
                         </BioCompanyAbout>
                       </BioHeader>
                     </BioSection>
+                  </AnimationWrapper>
 
+                  <AnimationWrapper>
                     <Heading as="h3" variant="section-title">
                       Technologies
                     </Heading>
                     <Box
-
-                      bg={"#ffffff01"}
-                      css={{
-                        backdropFilter: 'blur(3px)',
-                        borderRadius: '10px'
-                      }}>
+                      overflow="hidden"
+                    // css={{
+                    //   backdropFilter: 'blur(3px)',
+                    //   borderRadius: '10px'
+                    // }}
+                    >
                       <Highlight
                         {...defaultProps}
                         theme={theme}
-                        code={isLessThan1280 ? exampleCode : exampleCodeBig}
+                        code={isLessThan800 ? exampleCode : exampleCodeBig}
                         language="jsx">
                         {({ className, style, tokens, getLineProps, getTokenProps }) => (
                           <Pre className={className} style={style}>
@@ -333,9 +342,8 @@ const Home = () => {
                         )}
                       </Highlight>
                     </Box>
-
-                  </Box>
-                </AnimationWrapper>
+                  </AnimationWrapper>
+                </Box>
 
                 <Box
                   borderRadius="lg"
@@ -375,7 +383,7 @@ const Home = () => {
                           color={'blue'}
                           leftIcon={<IoDownload />}
                         >
-                          CV
+                          Download CV
                         </Button>
                       </Link>
                     </ListItem>
@@ -384,7 +392,7 @@ const Home = () => {
               </motion.article>
             </>)
         }
-      </Container>
+      </Container >
     </Layout >
   )
 }
