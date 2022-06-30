@@ -46,24 +46,13 @@ const LazyComputer = dynamic(() => import('../components/computer-dog'), {
 })
 const exampleCode = `{
   technologies: [
-    React: {
-       years: 5
-      },
-    NodeJS: {
-       years: 3
-      },
-    NextJS: {
-       years: 2
-      },
-    CSharp: {
-       years: 2
-      },
-    Typescript: {
-       years: 3
-      }
+    React: { years: 5 },
+    NodeJS: { years: 3 },
+    NextJS: { years: 2 },
+    CSharp: { years: 2 },
+    Typescript: { years: 3 }
   ],
-  databases: 
-    [ 
+  databases: [ 
       'MongoDB',
       'PostgreSQL'
     ],
@@ -108,6 +97,7 @@ const exampleCodeBig = `{
 
 const Home = () => {
   const [isLessThan800] = useMediaQuery('(max-width: 800px)')
+  const [isLessThan550] = useMediaQuery('(max-width: 550px)')
   const [showPreviewVideo, setShowPreviewVideo] = useState(false);
 
   const some = {
@@ -182,7 +172,7 @@ const Home = () => {
                   flexDirection='column'
                   justifyContent='center'
                   alignItems='center'
-                  height={'100vh'}
+                  height={'90vh'}
                 >
                   <DynamicText />
                   <Box
@@ -214,7 +204,7 @@ const Home = () => {
                     display='flex'
                     flexDirection='column'
                     justifyContent='center'
-                    height={'100vh'}
+                    height={'90vh'}
                     color={'white'}
                     fontSize={{ base: "22px", md: "24px" }}
                   >

@@ -61,7 +61,7 @@ const PreviewVideo = ({ setPercent, percent }) => {
                 position: 'fixed',
                 zIndex: '999',
                 background: '#000000',
-                height: '100vh',
+                height: '0vh',
                 width: '100%',
                 display: 'flex',
                 alignItems: 'center',

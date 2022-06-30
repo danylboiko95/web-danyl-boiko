@@ -36,7 +36,7 @@ export const BioYear = styled.div`
 export const BioCompany = styled.div`
   font-weight: bold;
   font-size: 18px;
-  line-height: 1;
+  line-height: 1.4;
   margin-bottom: 10px;
   @media (max-width: 460px) {
     font-size: 16px;
@@ -46,10 +46,10 @@ export const BioCompanyAbout = styled.div`
   line-height: 1.2;
   margin-bottom: 10px;
   max-width: 90vw;
-  font-size: 15px;
+  font-size: 16px;
 
   @media (max-width: 460px) {
-    font-size: 13px;
+    font-size: 15px;
   }
 `
 
