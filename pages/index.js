@@ -16,7 +16,7 @@ import {
 import VoxelComputerLoader from '../components/computer-loader'
 
 import Paragraph from '../components/paragraph'
-import { BioCompany, BioHeader, BioSection, Pre, Line, LineNo, LineContent, BioYear } from '../components/bio'
+import { BioCompany, BioHeader, BioSection, Pre, Line, LineNo, LineContent, BioYear, BioCompanyAbout } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 // import { GridItem } from '../components/grid-item'
@@ -46,10 +46,21 @@ const LazyComputer = dynamic(() => import('../components/computer-dog'), {
 })
 const exampleCode = `{
   technologies: [
-    React: { years: 5 },
-    NodeJS: { years: 3 },
-    NextJS: { years: 2 },
-    CSharp: { years: 2 },
+    React: {
+       years: 5
+      },
+    NodeJS: {
+       years: 3
+      },
+    NextJS: {
+       years: 2
+      },
+    CSharp: {
+       years: 2
+      },
+    Typescript: {
+       years: 3
+      }
   ],
   databases: 
     [ 
@@ -61,7 +72,20 @@ const exampleCode = `{
     'Kubernetes',
     'AWS',
     'Azure'
-  ]
+  ],
+  clouds: [
+    'AWS',
+    'Azure', 
+    'Vercel'
+  ],
+  methodologies: [
+    'Agile',
+    'Scrum',
+    'Kanban',
+    'Waterfall'
+  ],
+  microservices: true,
+  monolith: true
 }
 `;
 const exampleCodeBig = `{
@@ -70,9 +94,15 @@ const exampleCodeBig = `{
     NodeJS: { years: 3 },
     NextJS: { years: 2 },
     CSharp: { years: 2 },
+    Typescript: { years: 3},
+    Canvas: { years: 1}
   ],
-  databases: ['MongoDB', 'PostgreSQL'],
-  infrastructure: ['Docker', 'Kubernetes', 'AWS', 'Azure']
+  databases: ['MongoDB', 'PostgreSQL', 'Redis'],
+  infrastructure: ['Docker', 'Kubernetes'],
+  clouds: ['AWS', 'Azure', 'Vercel'],
+  methodologies: ['Agile', 'Scrum', 'Kanban', 'Waterfall'],
+  microservices: true,
+  monolith: true
 }
 `;
 
@@ -80,9 +110,6 @@ const Home = () => {
   const [isLessThan1280] = useMediaQuery('(max-width: 1000px)')
   const [showPreviewVideo, setShowPreviewVideo] = useState(false);
 
-  // console.log(videoRef)
-  const [refMain, inViewMain] = useInView();
-  const [refSub, inViewSub] = useInView();
   const some = {
     technologies: ['React', 'Node.JS', 'Next.JS',],
     databases: ['MongoDB', 'PostgreSQL'],
@@ -226,40 +253,53 @@ const Home = () => {
                     p={3}
                   >
                     <Heading as="h3" variant="section-title">
-                      About my experience
+                      Journey
                     </Heading>
+
                     <BioSection>
+                      <BioYear>Dec 2020</BioYear>
                       <BioHeader>
-                        <BioYear>Nov 2015</BioYear>
+                        <BioCompany>React developer - System1Group, Remote, United Kingdom 🇬🇧</BioCompany>
+                        <BioCompanyAbout>
+                          World leaders in predicting and improving ad effectiveness
+                        </BioCompanyAbout>
                       </BioHeader>
-                      <BioCompany>Self-employed</BioCompany>
-                      As a 3D’s Max artist I had a huge experience related not only for 3D’s Max but for additional fields.
-                      As a TeamLead, Mentor, Project Manager. For part time I was a tutor in 3D max.
-                      Also had a small experience with Unreal Engine.
                     </BioSection>
+
                     <BioSection>
+                      <BioYear>Feb 2019</BioYear>
                       <BioHeader>
-                        <BioYear>Mar 2017</BioYear>
+                        <BioCompany>Typescript developer - SciChart, Remote, United Kingdom 🇬🇧</BioCompany>
+                        <BioCompanyAbout>
+                          High loaded 2D/3D charts created by WebAssembly
+                        </BioCompanyAbout>
                       </BioHeader>
-                      <BioCompany>Full-stack developer - TEAMinterantional, Ukraine 🇺🇦</BioCompany>
-                      The previous project was a backend on C# Web.api,
-                      front end on Angular.js, the database on MSSQL, the cloud environment on AZURE.
-                      Main project was related to improvement of ecology based on blockchain technology with own tokens and work with Metamask.
-                      Also was two MVP projects.
                     </BioSection>
+
                     <BioSection>
+                      <BioYear>Mar 2017</BioYear>
                       <BioHeader>
-                        <BioYear>Feb 2019</BioYear>
+                        <BioCompany>Full-stack developer - TEAMinterantional, Ukraine 🇺🇦</BioCompany>
+                        <BioCompanyAbout>
+                          The previous project was a backend on C# Web.api,
+                          front end on Angular.js, the database on MSSQL, the cloud environment on AZURE.
+                          Main project was related to improvement of ecology based on blockchain technology with own tokens and work with Metamask.
+                          Also was two MVP projects.
+                        </BioCompanyAbout>
                       </BioHeader>
-                      <BioCompany>Typescript developer - SciChart, Remote, United Kingdom 🇬🇧</BioCompany>
-                      High loaded 2D/3D charts created by WebAssembly
                     </BioSection>
+
                     <BioSection>
+                      <BioYear>Nov 2015</BioYear>
                       <BioHeader>
-                        <BioYear>Dec 2020</BioYear>
+                        <BioCompany>Self-employed</BioCompany>
+                        <BioCompanyAbout>
+                          As a 3D’s Max artist I had a huge experience related not only for 3D’s Max
+                          but for additional fields.
+                          As a TeamLead, Mentor, Project Manager. For part time I was a tutor in 3D max.
+                          Also had a small experience with Unreal Engine.
+                        </BioCompanyAbout>
                       </BioHeader>
-                      <BioCompany>React developer - System1Group, Remote, United Kingdom 🇬🇧</BioCompany>
-                      World leaders in predicting and improving ad effectiveness
                     </BioSection>
 
                     <Heading as="h3" variant="section-title">

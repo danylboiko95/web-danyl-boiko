@@ -2,34 +2,48 @@ import { Box } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 
 export const BioSection = styled(Box)`
-  padding-left: 3.4em;
-  text-indent: -3.4em;
-  margin-bottom: 2.4em;
 
-  @media (max-width: 420px) {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  @media (max-width: 460px) {
     font-size: 14px;
     padding-left: 1.4em;
+    gap: 0;
   }
 `
 
 export const BioHeader = styled(Box)`
+  display: flex;
+  flex-direction: column;
   margin-bottom: 0.6em;
 
 `
 
-export const BioYear = styled.span`
+export const BioYear = styled.div`
   margin-right: 1em;
   font-size: 12px;
+  white-space: nowrap;
+  @media (max-width: 460px) {
+    transform: rotate(-90deg) translate(-52px, -10px);
+    width: 10px;
+  }
 `
 
-export const BioCompany = styled.span`
+export const BioCompany = styled.div`
   font-weight: bold;
-  margin-right: 1em;
   font-size: 18px;
-
-  @media (max-width: 420px) {
+  line-height: 1;
+  margin-bottom: 10px;
+  @media (max-width: 460px) {
     font-size: 16px;
   }
+`
+export const BioCompanyAbout = styled.div`
+  line-height: 1.2;
+  margin-bottom: 10px;
+  max-width: 90vw;
 `
 
 export const Pre = styled.pre`
@@ -60,7 +74,12 @@ export const LineNo = styled.span`
   margin-left: 1em;
 
   @media (max-width: 550px) {
-    font-size: 0;
+    font-size: 12px;
+  }
+  @media (max-width: 400px) {
+
+    padding-right: 0.5em;
+    padding-left: 0em;
   }
 `;
 

@@ -26,12 +26,13 @@ const DynamicText = () => {
                 Danyl Boiko
             </Heading>
             <Heading as="h2" >
-                <Box color={'blue'} display={{ base: 'inline-block' }} ref={el}></Box>
+                <Box
+                    textShadow={'red -2px 0, cyan 2px 0'} display={{ base: 'inline-block' }} ref={el}></Box>
                 <Box display={{ base: 'block', md: 'inline-block' }} >
                     developer
                 </Box>
-            </Heading>
-        </Box>)
+            </Heading >
+        </Box >)
 }
 
 export default DynamicText

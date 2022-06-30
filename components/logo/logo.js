@@ -1,5 +1,7 @@
-import { Box } from "@chakra-ui/react"
+import { Box, Button } from "@chakra-ui/react"
 import styled from "@emotion/styled"
+import Link from "next/link"
+import { IoDownload } from "react-icons/io5"
 
 const LogoWrapper = styled(Box)`
     display: flex;
@@ -33,10 +35,18 @@ const RightLine = styled.span`
     flex: 1;
 `
 const Logo = () => (
-    <LogoWrapper width={{sm: '80px', md: '100px'}}>
+    <LogoWrapper width={{ sm: '40px', md: '60px' }}>
         <LeftLine />
         <TextLogo>
-            Danyl Boiko
+            <Link href="./pdf/Danyl_Boiko_CV.pdf" target="_blank" download>
+                <Button
+                    fontSize="10px"
+                    variant="ghost"
+                    leftIcon={<IoDownload />}
+                >
+                    Download CV
+                </Button>
+            </Link>
         </TextLogo>
         <RightLine />
     </LogoWrapper >
