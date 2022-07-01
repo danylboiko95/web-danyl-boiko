@@ -1,7 +1,6 @@
 import { Heading } from "@chakra-ui/react";
 import AnimationWrapper from "../animation-wrapper/animation-wrapper";
 import { BioCompany, BioCompanyAbout, BioCompanyTechologies, BioSection, BioWrapper, BioYear } from "../bio";
-import DynamicText from "../dynamic-text/dynamic-text";
 
 const Journey = () => (
     <>
