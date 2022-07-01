@@ -68,7 +68,19 @@ export const Pre = styled.pre`
   @media (max-width: 550px) {
 
     padding: 0em;
-    font-size: 14px;
+
+  }
+  @media (max-width: 480px) {
+    padding: 0em;
+    font-size: 13px;
+  }
+  @media (max-width: 420px) {
+    padding: 0em;
+    font-size: 12px;
+  }
+  @media (max-width: 360px) {
+    padding: 0em;
+    font-size: 9px;
   }
 `;
 
