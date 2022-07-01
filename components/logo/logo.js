@@ -38,15 +38,15 @@ const Logo = () => (
     <LogoWrapper width={{ sm: '40px', md: '60px' }}>
         <LeftLine />
         <TextLogo>
-            <Link href="./pdf/Danyl_Boiko_CV.pdf" target="_blank" download>
-                <Button
+            <a target="_blank" href="./pdf/Danyl_Boiko_CV.pdf">
+                <Box
                     fontSize="10px"
-                    variant="ghost"
-                    leftIcon={<IoDownload />}
+                    display={'flex'}
+                    gap="5px"
                 >
-                    Download CV
-                </Button>
-            </Link>
+                   <IoDownload /> Download CV
+                </Box>
+            </a>
         </TextLogo>
         <RightLine />
     </LogoWrapper >

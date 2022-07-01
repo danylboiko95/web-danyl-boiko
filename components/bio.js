@@ -16,7 +16,7 @@ export const BioSection = styled(Box)`
   }
 `
 
-export const BioHeader = styled(Box)`
+export const BioWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
   margin-bottom: 0.6em;
@@ -63,7 +63,7 @@ export const Pre = styled.pre`
   @media (max-width: 550px) {
 
     padding: 0em;
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
 

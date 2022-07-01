@@ -1,12 +1,9 @@
-import NextLink from 'next/link'
 import {
   Link,
   Container,
   Heading,
   Box,
-  SimpleGrid,
   Button,
-  useColorModeValue,
   List,
   ListItem,
   chakra,
@@ -16,19 +13,28 @@ import {
 import VoxelComputerLoader from '../components/computer-loader'
 
 import Paragraph from '../components/paragraph'
-import { BioCompany, BioHeader, BioSection, Pre, Line, LineNo, LineContent, BioYear, BioCompanyAbout } from '../components/bio'
+import {
+  BioCompany,
+  BioWrapper,
+  BioSection,
+  Pre,
+  Line,
+  LineNo,
+  LineContent,
+  BioYear,
+  BioCompanyAbout
+} from '../components/bio'
 import Layout from '../components/layouts/article'
-import Section from '../components/section'
-// import { GridItem } from '../components/grid-item'
-import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoDownload } from 'react-icons/io5'
-// import thumbYouTube from '../public/images/links/youtube.png'
-// import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png'
+
+
+import { IoLogoInstagram, IoLogoGithub, IoDownload } from 'react-icons/io5'
+
 import Image from 'next/image'
 import ParticlesBackground from '../components/particle'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { useInView } from 'react-intersection-observer'
+
 import DynamicText from '../components/dynamic-text/dynamic-text'
 import Logo from '../components/logo/logo'
 import PreviewVideo from '../components/preview-video/preview-video'
@@ -44,6 +50,7 @@ const LazyComputer = dynamic(() => import('../components/computer-dog'), {
   ssr: false,
   loading: () => <VoxelComputerLoader />
 })
+
 const exampleCode = `{
   technologies: [
     React: { years: 5 },
@@ -97,14 +104,9 @@ const exampleCodeBig = `{
 
 const Home = () => {
   const [isLessThan800] = useMediaQuery('(max-width: 800px)')
-  const [isLessThan550] = useMediaQuery('(max-width: 550px)')
+
   const [showPreviewVideo, setShowPreviewVideo] = useState(false);
 
-  const some = {
-    technologies: ['React', 'Node.JS', 'Next.JS',],
-    databases: ['MongoDB', 'PostgreSQL'],
-    infrastructure: ['Docker', 'Kubernetes', 'AWS', 'Azure']
-  }
   const [percent, setPercent] = useState(0);
 
   const variants = {
@@ -132,7 +134,7 @@ const Home = () => {
       }, 500)
       setTimeout(() => {
 
-        window.scrollTo(0, 0)
+
         document.body.style.overflow = 'auto'
       }, 1000)
     }
@@ -157,7 +159,6 @@ const Home = () => {
                 transition={{ duration: 1, type: 'easeInOut', delay: 1 }}
                 style={{ position: 'relative' }}
               >
-
                 <Logo />
                 <Box
                   position='absolute' height="100vh" zIndex='-9999'>
@@ -241,39 +242,40 @@ const Home = () => {
                   mb={6}
                   p={3}
                 >
-
                   <AnimationWrapper>
                     <Heading as="h3" variant="section-title">
                       Journey
                     </Heading>
+                  </AnimationWrapper>
 
+                  <AnimationWrapper>
                     <BioSection>
                       <BioYear>Dec 2020</BioYear>
-                      <BioHeader>
+                      <BioWrapper>
                         <BioCompany>React developer - System1Group, Remote, United Kingdom 🇬🇧</BioCompany>
                         <BioCompanyAbout>
                           World leaders in predicting and improving ad effectiveness
                         </BioCompanyAbout>
-                      </BioHeader>
+                      </BioWrapper>
                     </BioSection>
                   </AnimationWrapper>
 
                   <AnimationWrapper>
                     <BioSection>
                       <BioYear>Feb 2019</BioYear>
-                      <BioHeader>
+                      <BioWrapper>
                         <BioCompany>Typescript developer - SciChart, Remote, United Kingdom 🇬🇧</BioCompany>
                         <BioCompanyAbout>
                           High loaded 2D/3D charts created by WebAssembly
                         </BioCompanyAbout>
-                      </BioHeader>
+                      </BioWrapper>
                     </BioSection>
                   </AnimationWrapper>
 
                   <AnimationWrapper>
                     <BioSection>
                       <BioYear>Mar 2017</BioYear>
-                      <BioHeader>
+                      <BioWrapper>
                         <BioCompany>Full-stack developer - TEAMinterantional, Ukraine 🇺🇦</BioCompany>
                         <BioCompanyAbout>
                           The previous project was a backend on C# Web.api,
@@ -281,14 +283,14 @@ const Home = () => {
                           Main project was related to improvement of ecology based on blockchain technology with own tokens and work with Metamask.
                           Also was two MVP projects.
                         </BioCompanyAbout>
-                      </BioHeader>
+                      </BioWrapper>
                     </BioSection>
                   </AnimationWrapper>
 
                   <AnimationWrapper>
                     <BioSection>
                       <BioYear>Nov 2015</BioYear>
-                      <BioHeader>
+                      <BioWrapper>
                         <BioCompany>Self-employed</BioCompany>
                         <BioCompanyAbout>
                           As a 3D’s Max artist I had a huge experience related not only for 3D’s Max
@@ -296,7 +298,7 @@ const Home = () => {
                           As a TeamLead, Mentor, Project Manager. For part time I was a tutor in 3D max.
                           Also had a small experience with Unreal Engine.
                         </BioCompanyAbout>
-                      </BioHeader>
+                      </BioWrapper>
                     </BioSection>
                   </AnimationWrapper>
 

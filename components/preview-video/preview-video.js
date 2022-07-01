@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-const videoSrc = './videos/alien-video.MOV'
+const videoSrc = './videos/alien.MOV'
 
 const topVideoTransform = 90
 const topTextTransfrom = 25
@@ -39,16 +39,16 @@ const PreviewVideo = ({ setPercent, percent }) => {
                     const seconds = videoRef.current.duration % 60
                     setPercent(percent)
                     const currentTime = ((seconds * percent) / 100).toFixed(2)
-                    console.log(currentTime, 'currentTime')
+
                     videoRef.current.currentTime = currentTime
-                    setAnimation(percent, 0, 3, true)
-                    setAnimation(percent, 3, 12, false, 'Oo, someone from Earth!')
-                    setAnimation(percent, 12, 18, true)
-                    setAnimation(percent, 18, 48, false, "You've found a developer we've been following for a long time 😈")
-                    setAnimation(percent, 48, 52, true)
-                    setAnimation(percent, 56, 72, false, "But for now, we have no plans to kidnap him")
-                    setAnimation(percent, 72, 76, true)
-                    setAnimation(percent, 76, 99, false, "So for now, you can check out his CV😊")
+                    setAnimation(percent, 0, 7, true)
+                    setAnimation(percent, 7, 15, false, 'Oo, someone from Earth!')
+                    setAnimation(percent, 15, 25, true)
+                    setAnimation(percent, 25, 44, false, "You've found a developer we've been following for a long time 😈")
+                    setAnimation(percent, 44, 48, true)
+                    setAnimation(percent, 48, 59, false, "But for now, we have no plans to kidnap him")
+                    setAnimation(percent, 59, 64, true)
+                    setAnimation(percent, 64, 99, false, "So you can check out his CV😊")
                 }
             }
         }, 33.7);
@@ -106,9 +106,10 @@ const PreviewVideo = ({ setPercent, percent }) => {
                                     / (100 - 80))).toFixed(2)}%`
                                 : `${topTextTransfrom}%`,
                             zIndex: 9999999,
-                            backgroundColor: "#02D948",
+                            backgroundColor: "#2997ff",
                             padding: "6px 10px",
                             borderRadius: "10px",
+                            margin: '0 40px'
                         }}
                     >
                         {text}
