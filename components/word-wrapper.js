@@ -9,6 +9,7 @@ const WordWrapper = ({ text }) => (
         borderRadius={4}
         backgroundColor={"white"}
         whiteSpace={"nowrap"}
+        fontFamily={"mono"}
     >
         {text}
     </Box>
