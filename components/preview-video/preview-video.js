@@ -56,7 +56,7 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
     }, [])
 
     return (<>
-        <Box height='10000' />
+        <Box height='7500' />
         <Box
             css={{
                 position: 'fixed',
