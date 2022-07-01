@@ -28,7 +28,7 @@ export const BioYear = styled.div`
   font-size: 12px;
   white-space: nowrap;
   @media (max-width: 460px) {
-    transform: rotate(-90deg) translate(-52px, -10px);
+    transform: rotate(-90deg) translate(-55px, -10px);
     width: 10px;
   }
 `

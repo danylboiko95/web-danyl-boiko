@@ -1,7 +1,6 @@
 import { Box, chakra } from "@chakra-ui/react";
 import Image from 'next/image'
-
-import DynamicText from "../dynamic-text/dynamic-text";
+import Header from "./header";
 
 
 const ProfileImage = chakra(Image, {
@@ -17,7 +16,7 @@ const MeSection = () => (
         alignItems='center'
         height={'90vh'}
     >
-        <DynamicText />
+        <Header />
         <Box
             borderColor="#3e3e3e"
             borderWidth={1}

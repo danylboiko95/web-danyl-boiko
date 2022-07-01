@@ -91,6 +91,9 @@ const Home = () => {
 
                 <BoxWrapper>
                   <Technologies />
+                </BoxWrapper>
+                
+                <BoxWrapper>
                   <Journey />
                 </BoxWrapper>
 
