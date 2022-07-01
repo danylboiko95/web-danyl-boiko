@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 const videoSrc = './videos/alien.MOV'
 
 const topVideoTransform = 90
-const topTextTransfrom = 25
+const topTextTransfrom = 20
 const textTip = 'Scroll me'
 const PreviewVideo = ({ setPercent, percent }) => {
     const [text, setText] = useState(null);

@@ -50,7 +50,7 @@ const VoxelDog = () => {
       renderer.setSize(scW, scH)
       renderer.outputEncoding = THREE.sRGBEncoding
       container.appendChild(renderer.domElement)
-      console.log(renderer.domElement)
+
       setRenderer(renderer)
 
       // 640 -> 240
@@ -109,7 +109,6 @@ const VoxelDog = () => {
       }
 
       return () => {
-        console.log('unmount')
         cancelAnimationFrame(req)
         renderer.dispose()
       }

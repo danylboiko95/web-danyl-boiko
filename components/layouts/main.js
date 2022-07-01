@@ -8,7 +8,7 @@ const Main = ({ children }) => {
       <Box as="main" pb={1}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="description" content="Danyl Boiko homepage" />
+          <meta name="description" content="Danyl Boiko - Software Developer" />
           <meta name="author" content="Danyl Boiko" />
           <meta name="author" content="danylboiko" />
           <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -22,7 +22,7 @@ const Main = ({ children }) => {
           <meta name="og:title" content="Danyl Boiko" />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="/images/danylboiko.jpg" />
-          <title>Danyl Boiko - Homepage</title>
+          <title>Danyl Boiko - Software Developer</title>
         </Head>
         <Container>
           {children}

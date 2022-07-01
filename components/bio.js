@@ -52,6 +52,11 @@ export const BioCompanyAbout = styled.div`
     font-size: 15px;
   }
 `
+export const BioCompanyTechologies = styled.div`
+  font-size: 12px;
+  margin-top: 10px;
+
+`
 
 export const Pre = styled.pre`
   text-align: left;
