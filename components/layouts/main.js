@@ -1,13 +1,5 @@
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
-// import NavBar from '../navbar'
 import { Box, Container } from '@chakra-ui/react'
-// import Footer from '../footer'
-import VoxelDogLoader from '../computer-loader'
-import { useViewportScroll, motion, useSpring, useTransform, AnimatePresence } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
-import styled from '@emotion/styled';
-
 
 const Main = ({ children }) => {
 
@@ -32,13 +24,8 @@ const Main = ({ children }) => {
           <meta property="og:image" content="/images/danylboiko.jpg" />
           <title>Danyl Boiko - Homepage</title>
         </Head>
-
-        {/* <NavBar path={router.asPath} /> */}
-
         <Container>
           {children}
-
-          {/* <Footer /> */}
         </Container>
       </Box >
     </>

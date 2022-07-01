@@ -293,7 +293,7 @@ const Home = () => {
                       <BioWrapper>
                         <BioCompany>Self-employed</BioCompany>
                         <BioCompanyAbout>
-                          As a 3D’s Max artist I had a huge experience related not only for 3D’s Max
+                          As a 3D&apos;s Max artist I had a huge experience related not only for 3D&apos;s Max
                           but for additional fields.
                           As a TeamLead, Mentor, Project Manager. For part time I was a tutor in 3D max.
                           Also had a small experience with Unreal Engine.
@@ -308,10 +308,6 @@ const Home = () => {
                     </Heading>
                     <Box
                       overflow="hidden"
-                    // css={{
-                    //   backdropFilter: 'blur(3px)',
-                    //   borderRadius: '10px'
-                    // }}
                     >
                       <Highlight
                         {...defaultProps}

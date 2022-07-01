@@ -1,6 +1,5 @@
-import { Box, Button } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 import styled from "@emotion/styled"
-import Link from "next/link"
 import { IoDownload } from "react-icons/io5"
 
 const LogoWrapper = styled(Box)`

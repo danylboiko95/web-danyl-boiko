@@ -121,7 +121,6 @@ const PreviewVideo = ({ setPercent, percent }) => {
                 muted
                 autoPlay={true}
                 loop
-                // poster="./images/preview.png"
                 style={{
                     top: percent >= 80
                         ? `${50 - (((percent - 80) * 100 / (100 - 80))).toFixed(2)}%`
