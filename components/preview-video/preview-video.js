@@ -2,13 +2,14 @@ import { Box } from '@chakra-ui/react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { IoCaretForwardOutline, IoClipboard } from 'react-icons/io5';
 
 const videoSrc = './videos/alien.MOV'
 
 const topVideoTransform = 90
 const topTextTransfrom = 20
 const textTip = 'Scroll me'
-const PreviewVideo = ({ setPercent, percent }) => {
+const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
     const [text, setText] = useState(null);
 
     const [isTextHidden, setIsTextHidden] = useState(false);
@@ -75,11 +76,12 @@ const PreviewVideo = ({ setPercent, percent }) => {
                 ? (
                     <motion.div
                         initial={{ opacity: 0, }}
-                        transition={{ repeat: Infinity,
+                        transition={{
+                            repeat: Infinity,
                             repeatType: "reverse",
                             duration: 2,
                             delay: 2
-                          }}
+                        }}
                         animate={{ opacity: 1, }}
                         exit={{ opacity: 0, }}
 
@@ -132,6 +134,21 @@ const PreviewVideo = ({ setPercent, percent }) => {
                     type="video/mp4"
                 />
             </video>
+            <Box
+            opacity={0.8}
+                display={'flex'}
+                alignItems="center"
+                cursor="pointer"
+                onClick={() => { setIsSkip(true) }}
+                position="fixed"
+                bottom="10%"
+                fontSize={12}>
+
+
+                You can skip me
+                <IoCaretForwardOutline />
+
+            </Box>
         </Box>
     </>)
 }

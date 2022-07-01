@@ -25,6 +25,7 @@ const Home = () => {
   const [showPreviewVideo, setShowPreviewVideo] = useState(false);
 
   const [percent, setPercent] = useState(0);
+  const [isSkip, setIsSkip] = useState(false);
 
   const variants = {
     hidden: { opacity: 0, y: 0 },
@@ -33,14 +34,14 @@ const Home = () => {
 
   useEffect(() => {
 
-    if (percent >= 95) {
+    if (percent >= 95 || isSkip) {
       document.body.style.overflow = 'hidden';
       setTimeout(() => {
         window.scrollTo(0, 0)
       }, 300)
     }
 
-    if (percent >= 95.0001) {
+    if (percent >= 95.0001 || isSkip) {
       setTimeout(() => {
         setShowPreviewVideo(true)
 
@@ -51,7 +52,7 @@ const Home = () => {
         document.body.style.overflow = 'auto'
       }, 1000)
     }
-  }, [percent])
+  }, [percent, isSkip])
 
   return (
     <Layout>
@@ -61,7 +62,7 @@ const Home = () => {
         }}
         color={'white'}>
         {!showPreviewVideo
-          ? (<PreviewVideo setPercent={setPercent} percent={percent} />)
+          ? (<PreviewVideo setPercent={setPercent} percent={percent} setIsSkip={setIsSkip} />)
           : (
             <>
               <motion.article
