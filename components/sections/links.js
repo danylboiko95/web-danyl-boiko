@@ -6,7 +6,7 @@ const Links = () => (
         <Heading as="h3" variant="section-title">
             Links
         </Heading>
-        <List>
+        <List display='flex' justifyContent={'space-between'} flexDirection={{ base: "column", md: "row" }} >
             <ListItem>
                 <Link href="https://github.com/danylboiko95" target="_blank">
                     <Button
