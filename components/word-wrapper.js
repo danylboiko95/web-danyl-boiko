@@ -7,9 +7,10 @@ const WordWrapper = ({ text }) => (
         px={1}
         mx={1}
         borderRadius={4}
-        backgroundColor={"white"}
+        backgroundColor={"#fefefe"}
         whiteSpace={"nowrap"}
-        fontFamily={"mono"}
+        fontWeight={600}
+        fontFamily={"'Major Mono Display', monospace"}
     >
         {text}
     </Box>

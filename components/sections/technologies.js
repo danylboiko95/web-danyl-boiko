@@ -15,13 +15,12 @@ const exampleCode = `{
     ],
     databases: [ 
         'MongoDB',
-        'PostgreSQL'
+        'PostgreSQL',
+        'DynamoDB'
       ],
     infrastructure: [
       'Docker',
-      'Kubernetes',
-      'AWS',
-      'Azure'
+      'Kubernetes'
     ],
     clouds: [
       'AWS',
@@ -34,6 +33,12 @@ const exampleCode = `{
       'Kanban',
       'Waterfall'
     ],
+    other: [
+      'Redis',
+      'GoogleAPI',
+      'D3',
+      'Canvas'
+    ],
     microservices: true,
     monolith: true
   }
@@ -45,12 +50,13 @@ const exampleCodeBig = `{
       NextJS: { years: 2 },
       CSharp: { years: 2 },
       Typescript: { years: 3},
-      Canvas: { years: 1}
+
     ],
-    databases: ['MongoDB', 'PostgreSQL', 'Redis'],
+    databases: ['MongoDB', 'PostgreSQL', 'DynamoDB'],
     infrastructure: ['Docker', 'Kubernetes'],
     clouds: ['AWS', 'Azure', 'Vercel'],
     methodologies: ['Agile', 'Scrum', 'Kanban', 'Waterfall'],
+    other: ['Redis', 'GoogleAPI', 'D3', 'Canvas']
     microservices: true,
     monolith: true
   }
