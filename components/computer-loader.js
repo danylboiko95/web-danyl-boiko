@@ -15,7 +15,7 @@ export const ComputerSpinner = () => (
 export const ComputerContainer = forwardRef(({ children }, ref) => (
   <Box
     ref={ref}
-    className="voxel-dog"
+    className="voxel-computer"
     m="auto"
     mt={['0px', '-0px', '-0px']}
     mb={['-10px', '-35px', '-50px']}

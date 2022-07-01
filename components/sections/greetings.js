@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import VoxelComputerLoader from '../computer-loader'
 
-const LazyComputer = dynamic(() => import('../computer-dog'), {
+const LazyComputer = dynamic(() => import('../voxel-computer'), {
     ssr: false,
     loading: () => <VoxelComputerLoader />
 })

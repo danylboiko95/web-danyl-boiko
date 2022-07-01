@@ -8,7 +8,7 @@ function easeOutCirc(x) {
   return Math.sqrt(1 - Math.pow(x - 1, 4))
 }
 
-const VoxelDog = () => {
+const VoxelComputer = () => {
   const refContainer = useRef()
   const [loading, setLoading] = useState(true)
   const [renderer, setRenderer] = useState()
@@ -127,4 +127,4 @@ const VoxelDog = () => {
   )
 }
 
-export default VoxelDog
+export default VoxelComputer

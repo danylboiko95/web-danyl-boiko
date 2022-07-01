@@ -71,7 +71,7 @@ const Journey = () => (
             <BioSection>
                 <BioYear>Nov 2015</BioYear>
                 <BioWrapper>
-                    <BioCompany>Self-employed</BioCompany>
+                    <BioCompany>Self-employed 🇺🇦</BioCompany>
                     <BioCompanyAbout>
                         As a 3D&apos;s Max artist I had a huge experience related not only for 3D&apos;s Max
                         but for additional fields.
