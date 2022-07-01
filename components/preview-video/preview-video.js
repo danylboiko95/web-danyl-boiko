@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { IoCaretForwardOutline, IoClipboard } from 'react-icons/io5';
+import { IoCaretForwardOutline } from 'react-icons/io5';
 
 const videoSrc = './videos/alien.MOV'
 

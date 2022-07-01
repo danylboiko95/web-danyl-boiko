@@ -90,8 +90,8 @@ const Home = () => {
                 </AnimationWrapper>
 
                 <BoxWrapper>
-                  <Journey />
                   <Technologies />
+                  <Journey />
                 </BoxWrapper>
 
                 <BoxWrapper>
