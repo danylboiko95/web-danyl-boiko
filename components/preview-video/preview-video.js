@@ -49,7 +49,7 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
                     setAnimation(percent, 44, 48, true)
                     setAnimation(percent, 48, 59, false, "But for now, we have no plans to kidnap him")
                     setAnimation(percent, 59, 64, true)
-                    setAnimation(percent, 64, 99, false, "So you can check out his CV😊")
+                    setAnimation(percent, 64, 99, false, "So you can look at his CV and write him a mail 😊")
                 }
             }
         }, 33.7);
