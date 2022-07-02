@@ -39,7 +39,7 @@ const Logo = () => (
         <TextLogo>
             <a target="_blank" href="./pdf/Danyl_Boiko_CV.pdf">
                 <Box
-                    fontSize="10px"
+                    fontSize={{ base: '10px', md: '12px' }}
                     display={'flex'}
                     gap="5px"
                 >

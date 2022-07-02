@@ -8,7 +8,7 @@ const Links = () => (
         </Heading>
         <List
             display='flex'
-            justifyContent={'space-between'}
+            justifyContent={'space-around'}
             gap={4}
             flexDirection={{ base: "column", md: "row" }} mb={5} >
             <ListItem>

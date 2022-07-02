@@ -7,12 +7,14 @@ const WordWrapper = ({ text }) => (
         // px={1}
         // mx={1}
         borderRadius={2}
-        textDecoration="underline"
+        // textDecoration="underline"
         // backgroundColor={"#fefefe"}
-        letterSpacing={1.5}
+        color="blue"
+        letterSpacing={2}
         whiteSpace={"nowrap"}
         fontWeight="600"
-        fontFamily={"'Oswald', sans-serif"}>
+        fontFamily={"'Oswald', sans-serif"}
+        >
         {text}
     </Box>
 )

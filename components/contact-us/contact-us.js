@@ -82,7 +82,7 @@ export const ContactUs = () => {
                                 <Box mt={6}>
                                     <FormLabel>Email</FormLabel>
                                     <Input
-                                        width={'70vw'}
+                                        width={{ base: '70vw', md: '400px' }}
                                         required
                                         ref={inputEmail}
                                         pattern='/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;'
@@ -92,7 +92,9 @@ export const ContactUs = () => {
                                     />
                                     {isInputInvalid === true && (
                                         <AnimationWrapper yValue={'0'} delay={0} duration={0.3}>
-                                            <Box position={'absolute'} fontSize={{ base: "10px", smMd: "12px", md: "14px" }} color="tomato">
+                                            <Box position={'absolute'}
+                                                fontSize={{ base: "10px", smMd: "12px", md: "14px" }}
+                                                color="tomato">
                                                 Without valid email I wouldn&apos;t find you 😞
                                             </Box>
                                         </AnimationWrapper>
@@ -101,7 +103,7 @@ export const ContactUs = () => {
                                 <Box mt={6}>
                                     <FormLabel>Message</FormLabel>
                                     <Textarea
-                                        width={'70vw'}
+                                        width={{ base: '70vw', md: '400px' }}
                                         ref={textAreaMessage} maxLength={255} name="message" height={100}
                                         disabled={isLoading} />
                                 </Box>
@@ -115,6 +117,7 @@ export const ContactUs = () => {
                                     onClick={sendEmail}
                                     type="submit"
                                     float={'right'}
+                                    fontWeight="400"
                                 >
                                     Send
                                 </Button>
@@ -126,43 +129,6 @@ export const ContactUs = () => {
                                 }
                             </form>
                         </>)}
-                {/* <FormControl ref={form} onSubmit={sendEmail} style={{ width: '100%' }}>
-                    <Box mt={6}>
-                        <FormLabel>Email</FormLabel>
-                        <Input
-                            borderColor={isInputInvalid && 'tomato'}
-                            required
-                            ref={inputEmail}
-                            pattern='/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;'
-                            type="email"
-                            name="user_email"
-                            backgroundColor={"black"}
-                        />
-                        {isInputInvalid === true && (
-                            <AnimationWrapper yValue={'0'} delay={0} duration={0.3}>
-                                <Box position={'absolute'} fontSize={{ base: "12px", md: "14px" }} color="tomato">
-                                    Without valid email I wouldn&apos;t find you 😞
-                                </Box>
-                            </AnimationWrapper>
-                        )}
-                    </Box>
-                    <Box mt={6}>
-                        <FormLabel>Message</FormLabel>
-                        <Textarea ref={textAreaMessage} maxLength={255} name="message" height={100} />
-                    </Box>
-
-
-                    <Button
-                        variant={'ghost'}
-                        border={"1px solid white"}
-                        mt={6}
-                        onClick={sendEmail}
-                        type="submit"
-                        float={'right'}
-                    >
-                        Send
-                    </Button>
-                </FormControl> */}
             </Box>
         </AnimationWrapper >
 

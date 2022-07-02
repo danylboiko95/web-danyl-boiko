@@ -65,6 +65,7 @@ export const Pre = styled.pre`
   overflow: auto;
   background-color: transparent !important;
 
+  font-size: 16px;
   @media (max-width: 550px) {
 
     padding: 0em;

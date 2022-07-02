@@ -1,4 +1,4 @@
-import { Box, useMediaQuery } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -10,7 +10,7 @@ const topVideoTransform = 90
 const textTip = 'Scroll me'
 const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
     const [text, setText] = useState(null);
-    
+
     const topTextTransfrom = 20
     const [isTextHidden, setIsTextHidden] = useState(false);
 
@@ -96,6 +96,7 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
             )}
             <AnimatePresence>
                 {text && !isTextHidden && (<motion.div
+                    className='text-preview'
                     initial={{ opacity: 0, y: '200%' }}
                     transition={{ duration: 0.4, type: 'easeInOut', }}
                     animate={{ opacity: 1, y: '0%' }}
@@ -112,6 +113,7 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
                         padding: "6px 10px",
                         borderRadius: "10px",
                         margin: '0 40px'
+
                     }}
                 >
                     {text}
