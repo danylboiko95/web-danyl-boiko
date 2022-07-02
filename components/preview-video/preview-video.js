@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, useMediaQuery } from '@chakra-ui/react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -7,11 +7,11 @@ import { IoCaretForwardOutline } from 'react-icons/io5';
 const videoSrc = './videos/alien.MOV'
 
 const topVideoTransform = 90
-const topTextTransfrom = 20
 const textTip = 'Scroll me'
 const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
     const [text, setText] = useState(null);
-
+    
+    const topTextTransfrom = 20
     const [isTextHidden, setIsTextHidden] = useState(false);
 
     const videoRef = useRef()
@@ -103,9 +103,9 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
                     style={{
                         color: "white",
                         position: "fixed",
-                        top: percent >= 80
-                            ? `${topTextTransfrom - (((percent - 80) * 100
-                                / (100 - 80))).toFixed(2)}%`
+                        top: percent >= (100 - topTextTransfrom)
+                            ? `${topTextTransfrom - (((percent - (100 - topTextTransfrom)) * 100
+                                / (100 - (100 - topTextTransfrom)))).toFixed(2)}%`
                             : `${topTextTransfrom}%`,
                         zIndex: 9999999,
                         backgroundColor: "#2997ff",
@@ -124,9 +124,10 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
                 muted
                 autoPlay={true}
                 loop
+                poster='/images/preview.png'
                 style={{
-                    top: percent >= 80
-                        ? `${50 - (((percent - 80) * 100 / (100 - 80))).toFixed(2)}%`
+                    top: percent >= (100 - topTextTransfrom)
+                        ? `${50 - (((percent - (100 - topTextTransfrom)) * 100 / (100 - (100 - topTextTransfrom)))).toFixed(2)}%`
                         : '50%',
                 }}
             >
