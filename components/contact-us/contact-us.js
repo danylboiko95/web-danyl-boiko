@@ -15,16 +15,31 @@ export const ContactUs = () => {
     const [isLoading, setIsLoading] = useState(false);
     const errorMessage = 'Something went wrong. I send drones to fix it'
     const successfullySend = 'Your mail has been successfully sent, thank you!'
-    const sendEmail = (e) => {
 
-        e.preventDefault();
+    const checkValidationInput = () => {
+
         const isInvalidInput = inputEmail.current.value
             .toLowerCase()
             .match(
                 /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             )?.length !== 9
 
+        setIsInputInvalid(isInvalidInput)
+        return isInvalidInput;
+    }
+    const checkValidationTextArea = () => {
         const isInvalidTextArea = textAreaMessage.current.value?.length <= 2
+
+        setIsTextAreaInvalid(isInvalidTextArea)
+        return isInvalidTextArea;
+    }
+
+    const sendEmail = (e) => {
+
+        e.preventDefault();
+        const isInvalidInput = checkValidationInput()
+
+        const isInvalidTextArea = checkValidationTextArea();
 
         setIsInputInvalid(isInvalidInput)
         setIsTextAreaInvalid(isInvalidTextArea)
@@ -91,9 +106,9 @@ export const ContactUs = () => {
                                     <Input
                                         width={{ base: '70vw', md: '400px' }}
                                         ref={inputEmail}
-                                        pattern='/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;'
                                         type="email"
                                         name="user_email"
+                                        onChange={() => { isInputInvalid && checkValidationInput() }}
                                         disabled={isLoading}
                                     />
                                     {isInputInvalid === true && (
@@ -113,6 +128,7 @@ export const ContactUs = () => {
                                         ref={textAreaMessage}
                                         maxLength={255}
                                         name="message"
+                                        onChange={() => { isTextAreaInvalid && checkValidationTextArea() }}
                                         height={100}
                                         disabled={isLoading} />
 
