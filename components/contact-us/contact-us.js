@@ -9,6 +9,7 @@ export const ContactUs = () => {
     const inputEmail = useRef();
     const textAreaMessage = useRef();
     const [isInputInvalid, setIsInputInvalid] = useState(null);
+    const [isTextAreaInvalid, setIsTextAreaInvalid] = useState(null);
     const [isError, setIsError] = useState(false);
     const [isSuccessfully, setIsSuccessfully] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -22,8 +23,13 @@ export const ContactUs = () => {
             .match(
                 /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             )?.length !== 9
+
+        const isInvalidTextArea = textAreaMessage.current.value?.length <= 2
+
         setIsInputInvalid(isInvalidInput)
-        if (!isInvalidInput) {
+        setIsTextAreaInvalid(isInvalidTextArea)
+
+        if (!isInvalidInput && !isInvalidTextArea) {
             setIsLoading(true)
 
             emailjs.sendForm(
@@ -38,6 +44,7 @@ export const ContactUs = () => {
                     console.log(result.text);
                 }, (error) => {
                     setIsError(true)
+                    setIsLoading(false)
                     console.log(error.text);
                 })
                 .finally(() => {
@@ -83,7 +90,6 @@ export const ContactUs = () => {
                                     <FormLabel>Email</FormLabel>
                                     <Input
                                         width={{ base: '70vw', md: '400px' }}
-                                        required
                                         ref={inputEmail}
                                         pattern='/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;'
                                         type="email"
@@ -104,13 +110,26 @@ export const ContactUs = () => {
                                     <FormLabel>Message</FormLabel>
                                     <Textarea
                                         width={{ base: '70vw', md: '400px' }}
-                                        ref={textAreaMessage} maxLength={255} name="message" height={100}
+                                        ref={textAreaMessage}
+                                        maxLength={255}
+                                        name="message"
+                                        height={100}
                                         disabled={isLoading} />
+
+                                    {isTextAreaInvalid && (
+                                        <AnimationWrapper yValue={'0'} delay={0} duration={0.3}>
+                                            <Box position={'absolute'}
+                                                fontSize={{ base: "10px", smMd: "12px", md: "14px" }}
+                                                color="tomato">
+                                                At least send me hello 👋😊
+                                            </Box>
+                                        </AnimationWrapper>
+                                    )}
                                 </Box>
                                 <Button
                                     variant={'unstyled'}
                                     border={"1px solid white"}
-                                    mt={6}
+                                    mt={8}
                                     padding={'0 10px'}
                                     disabled={isLoading}
                                     flex={1}
