@@ -9,11 +9,10 @@ const WordWrapper = ({ text }) => (
         borderRadius={2}
         textDecoration="underline"
         // backgroundColor={"#fefefe"}
+        letterSpacing={1.5}
         whiteSpace={"nowrap"}
-        fontWeight={600}
-        fontSize={14}
-        fontFamily={"'Major Mono Display', monospace"}
-    >
+        fontWeight="600"
+        fontFamily={"'Oswald', sans-serif"}>
         {text}
     </Box>
 )

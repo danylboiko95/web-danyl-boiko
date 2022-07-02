@@ -19,7 +19,7 @@ const Journey = () => (
                     <BioCompanyAbout>
                         The product is a world leaders in predicting and improving ad effectiveness.
                         I am the main Front End developer in the team, supporting backend related tasks.
-                        The main focus of my job is to implement the creation of presentable <WordWrapper text={'graphs on d3'} />.
+                        The main focus of my job is to implement the creation of presentable <WordWrapper text={'Graphs on d3'} />.
                         I also mentored the middle developer at the same time.
                         After that, he successfully passed the interview to the senior level.
                         <BioCompanyTechologies>
@@ -55,7 +55,7 @@ const Journey = () => (
                     <BioCompany>Full-stack developer - TEAMinterantional, Ukraine 🇺🇦</BioCompany>
                     <BioCompanyAbout>
 
-                        First is a USA Medical insurance based project. Classic <WordWrapper text={'full-stack'} /> position.
+                        First is a USA Medical insurance based project. Classic <WordWrapper text={'Full-stack'} /> position.
                         From creating front-end component to CRUD in C#.
 
                         Second is ecology improvement based on <WordWrapper text={'blockchain'} /> technology with

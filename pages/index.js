@@ -62,7 +62,7 @@ const Home = () => {
           height: '100vh'
         }}
         color={'white'}>
-        {showPreviewVideo
+        {!showPreviewVideo
           ? (<PreviewVideo setPercent={setPercent} percent={percent} setIsSkip={setIsSkip} />)
           : (
             <>

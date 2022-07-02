@@ -43,9 +43,9 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
 
                     videoRef.current.currentTime = currentTime
                     setAnimation(percent, 0, 7, true)
-                    setAnimation(percent, 7, 15, false, 'Oo, someone from Earth!')
-                    setAnimation(percent, 15, 25, true)
-                    setAnimation(percent, 25, 44, false, "You've found a developer we've been following for a long time 😈")
+                    setAnimation(percent, 7, 17, false, 'Oo, someone from Earth!')
+                    setAnimation(percent, 17, 23, true)
+                    setAnimation(percent, 23, 44, false, "You've found a developer we've been following for a long time 😈")
                     setAnimation(percent, 44, 48, true)
                     setAnimation(percent, 48, 59, false, "But for now, we have no plans to kidnap him")
                     setAnimation(percent, 59, 64, true)

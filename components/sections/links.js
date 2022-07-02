@@ -6,7 +6,11 @@ const Links = () => (
         <Heading as="h3" variant="section-title">
             Links
         </Heading>
-        <List display='flex' justifyContent={'space-between'} flexDirection={{ base: "column", md: "row" }} >
+        <List
+            display='flex'
+            justifyContent={'space-between'}
+            gap={4}
+            flexDirection={{ base: "column", md: "row" }} mb={5} >
             <ListItem>
                 <a href="mailto:danylboiko@gmail.com">
                     <Box
