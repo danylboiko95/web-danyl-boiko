@@ -29,7 +29,7 @@ const AboutMe = () => (
                     and have completed the migration from Angular.js to React.
                     I had experience with blockchain technologies on the product
                     I developed from scratch to production as a <WordWrapper text={'Team-leader'} />.
-                    High level of experience I have got working on
+                    I have got a high level of experience working on
                     high-performance <WordWrapper text={'WebAssembly'} /> JS charts with 2D/3D WebGL.
                     As a contact point from the development team, my responsibility was to support customer requests and enhancements.
                 </Box>
