@@ -19,6 +19,7 @@ import Journey from '../components/sections/journey'
 import Technologies from '../components/sections/technologies'
 import Links from '../components/sections/links'
 import BoxWrapper from '../components/box-wrapper'
+import { ContactUs } from '../components/contact-us/contact-us'
 
 const Home = () => {
 
@@ -61,7 +62,7 @@ const Home = () => {
           height: '100vh'
         }}
         color={'white'}>
-        {!showPreviewVideo
+        {showPreviewVideo
           ? (<PreviewVideo setPercent={setPercent} percent={percent} setIsSkip={setIsSkip} />)
           : (
             <>
@@ -84,19 +85,16 @@ const Home = () => {
                 <AnimationWrapper>
                   <Greetings />
                 </AnimationWrapper>
-
-                <AnimationWrapper>
-                  <AboutMe />
-                </AnimationWrapper>
+                <AboutMe />
 
                 <BoxWrapper>
                   <Technologies />
                 </BoxWrapper>
-                
+
                 <BoxWrapper>
                   <Journey />
                 </BoxWrapper>
-
+                <ContactUs />
                 <BoxWrapper>
                   <Links />
                 </BoxWrapper>

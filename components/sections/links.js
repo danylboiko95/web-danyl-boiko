@@ -1,5 +1,5 @@
-import { Button, Heading, Link, List, ListItem } from "@chakra-ui/react"
-import { IoDownload, IoLogoGithub, IoLogoInstagram } from "react-icons/io5"
+import { Box, Heading, List, ListItem } from "@chakra-ui/react"
+import { IoDownload, IoLogoGithub, IoLogoInstagram, IoMail } from "react-icons/io5"
 
 const Links = () => (
     <>
@@ -8,37 +8,52 @@ const Links = () => (
         </Heading>
         <List display='flex' justifyContent={'space-between'} flexDirection={{ base: "column", md: "row" }} >
             <ListItem>
-                <Link href="https://github.com/danylboiko95" target="_blank">
-                    <Button
-                        variant="ghost"
+                <a href="mailto:danylboiko@gmail.com">
+                    <Box
+                        alignItems={"center"}
                         color={'blue'}
-                        leftIcon={<IoLogoGithub />}
+                        display={'flex'}
+                        gap="5px"
                     >
-                        @danylboiko95
-                    </Button>
-                </Link>
+                        <IoMail /> danylboiko@gmail.com
+                    </Box>
+                </a>
             </ListItem>
             <ListItem>
-                <Link href="https://instagram.com/danyl_boiko" target="_blank">
-                    <Button
-                        variant="ghost"
+                <a target="_blank" href="https://github.com/danylboiko95" rel="noreferrer">
+                    <Box
+                        alignItems={"center"}
                         color={'blue'}
-                        leftIcon={<IoLogoInstagram />}
+                        display={'flex'}
+                        gap="5px"
                     >
-                        @danyl_boiko
-                    </Button>
-                </Link>
+                        <IoLogoGithub /> danylboiko95
+                    </Box>
+                </a>
             </ListItem>
             <ListItem>
-                <Link href="./pdf/Danyl_Boiko_CV.pdf" target="_blank" download>
-                    <Button
-                        variant="ghost"
+                <a target="_blank" href="https://instagram.com/danyl_boiko" rel="noreferrer">
+                    <Box
+                        alignItems={"center"}
                         color={'blue'}
-                        leftIcon={<IoDownload />}
+                        display={'flex'}
+                        gap="5px"
                     >
-                        Download CV
-                    </Button>
-                </Link>
+                        <IoLogoInstagram /> danyl_boiko
+                    </Box>
+                </a>
+            </ListItem>
+            <ListItem>
+                <a target="_blank" href="./pdf/Danyl_Boiko_CV.pdf">
+                    <Box
+                        alignItems={"center"}
+                        color={'blue'}
+                        display={'flex'}
+                        gap="5px"
+                    >
+                        <IoDownload /> Download CV
+                    </Box>
+                </a>
             </ListItem>
         </List>
     </>

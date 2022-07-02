@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-const Paragraph = styled.p`
+const Paragraph = styled.span`
   text-align: left;
   text-indent: 1em;
   font-size: 16px;

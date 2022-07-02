@@ -11,8 +11,10 @@
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.8",
+    "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "emailjs": "^4.0.0",
     "framer-motion": "^6.3.0",
     "m3u8-parser": "^4.7.1",
     "mpd-parser": "^0.21.1",

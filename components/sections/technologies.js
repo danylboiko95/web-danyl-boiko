@@ -65,38 +65,38 @@ const exampleCodeBig = `{
 
 
 const Technologies = () => {
-    const [isLessThan800] = useMediaQuery('(max-width: 800px)')
+  const [isLessThan800] = useMediaQuery('(max-width: 800px)')
 
-    return (
-        <AnimationWrapper>
-            <Heading as="h3" variant="section-title">
-                Technologies
-            </Heading>
-            <Box
-                overflow="hidden"
-            >
-                <Highlight
-                    {...defaultProps}
-                    theme={theme}
-                    code={isLessThan800 ? exampleCode : exampleCodeBig}
-                    language="jsx">
-                    {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                        <Pre className={className} style={style}>
-                            {tokens.map((line, i) => (
-                                <Line key={i} {...getLineProps({ line, key: i })}>
-                                    <LineNo>{i + 1}</LineNo>
-                                    <LineContent>
-                                        {line.map((token, key) => (
-                                            <span key={key} {...getTokenProps({ token, key })} />
-                                        ))}
-                                    </LineContent>
-                                </Line>
-                            ))}
-                        </Pre>
-                    )}
-                </Highlight>
-            </Box>
-        </AnimationWrapper>
-    )
+  return (
+    <AnimationWrapper>
+      <Heading as="h3" variant="section-title">
+        Technologies
+      </Heading>
+      <Box
+        overflow="hidden"
+      >
+        <Highlight
+          {...defaultProps}
+          theme={theme}
+          code={isLessThan800 ? exampleCode : exampleCodeBig}
+          language="jsx">
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <Pre className={className} style={style}>
+              {tokens.map((line, i) => (
+                <Line key={i} {...getLineProps({ line, key: i })}>
+                  <LineNo>{i + 1}</LineNo>
+                  <LineContent>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token, key })} />
+                    ))}
+                  </LineContent>
+                </Line>
+              ))}
+            </Pre>
+          )}
+        </Highlight>
+      </Box>
+    </AnimationWrapper>
+  )
 }
 export default Technologies;
