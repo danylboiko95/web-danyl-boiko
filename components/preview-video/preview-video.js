@@ -43,13 +43,13 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
 
                     videoRef.current.currentTime = currentTime
                     setAnimation(percent, 0, 7, true)
-                    setAnimation(percent, 7, 17, false, 'Oo, someone from Earth!')
+                    setAnimation(percent, 7, 17, false, 'Oo, someone from Earth! 🌍')
                     setAnimation(percent, 17, 23, true)
                     setAnimation(percent, 23, 44, false, "You've found a developer we've been following for a long time 😈")
                     setAnimation(percent, 44, 48, true)
-                    setAnimation(percent, 48, 59, false, "But for now, we have no plans to kidnap him")
+                    setAnimation(percent, 48, 59, false, "But for now, we have no plans to kidnap Danyl 😇")
                     setAnimation(percent, 59, 64, true)
-                    setAnimation(percent, 64, 99, false, "So you can look at his CV and write him a mail 😊")
+                    setAnimation(percent, 64, 99, false, "So you can look at his CV and contact him 😊")
                 }
             }
         }, 33.7);
@@ -126,7 +126,6 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
                 muted
                 autoPlay={true}
                 loop
-                poster='/images/preview.png'
                 style={{
                     top: percent >= (100 - topTextTransfrom)
                         ? `${50 - (((percent - (100 - topTextTransfrom)) * 100 / (100 - (100 - topTextTransfrom)))).toFixed(2)}%`

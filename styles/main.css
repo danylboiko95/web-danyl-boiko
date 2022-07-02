@@ -38,3 +38,20 @@ input:-webkit-autofill:active {
    -webkit-transition-delay: 9999s;
    transition-delay: 9999s;
 }
+
+.text-preview{
+  position:relative;
+}
+.text-preview::after{
+
+  content:'';
+  position: absolute;
+  top: 100%;
+  right: 30px;
+
+  width: 0;
+  height: 0;
+  border-top: solid 8px #2997ff;
+  border-left: solid 8px transparent;
+  border-right: solid 8px transparent;
+}
