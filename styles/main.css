@@ -46,12 +46,12 @@ input:-webkit-autofill:active {
 
   content:'';
   position: absolute;
-  top: 75%;
+  top: 99%;
   right: 30px;
 
   width: 0;
   height: 0;
-  border-top: solid 15px #2997ff;
-  border-left: solid 15px transparent;
-  border-right: solid 15px transparent;
+  border-top: solid 10px #2997ff;
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
 }
