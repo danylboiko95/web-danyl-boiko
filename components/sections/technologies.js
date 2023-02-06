@@ -50,7 +50,6 @@ const exampleCodeBig = `{
       NextJS: { years: 2 },
       CSharp: { years: 2 },
       Typescript: { years: 3},
-
     ],
     databases: ['MongoDB', 'PostgreSQL', 'DynamoDB'],
     infrastructure: ['Docker', 'Kubernetes'],
@@ -62,24 +61,21 @@ const exampleCodeBig = `{
   }
   `;
 
-
-
 const Technologies = () => {
-  const [isLessThan800] = useMediaQuery('(max-width: 800px)')
+  const [isLessThan800] = useMediaQuery("(max-width: 800px)");
 
   return (
     <AnimationWrapper>
       <Heading as="h3" variant="section-title">
         Technologies
       </Heading>
-      <Box
-        overflow="hidden"
-      >
+      <Box overflow="hidden">
         <Highlight
           {...defaultProps}
           theme={theme}
           code={isLessThan800 ? exampleCode : exampleCodeBig}
-          language="jsx">
+          language="jsx"
+        >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <Pre className={className} style={style}>
               {tokens.map((line, i) => (
@@ -97,6 +93,6 @@ const Technologies = () => {
         </Highlight>
       </Box>
     </AnimationWrapper>
-  )
-}
+  );
+};
 export default Technologies;
