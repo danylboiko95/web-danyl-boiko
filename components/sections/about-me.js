@@ -17,7 +17,7 @@ const AboutMe = () => (
         <Paragraph>
             <AnimationWrapper>
                 <Box mb={5}>
-                    I am an experienced software engineer with 5 years of experience in the IT industry.
+                    I am an experienced software engineer with 6 years of experience in the IT industry.
                     Before starting my journey in the programming world, I worked on <WordWrapper text={'3D graphics (3ds MAX)'} /> and Unreal Engine with C++ basics.
                     After 2 years working at 3D domain, I decided to dig deeper into programming and found that creating products is my passion.
                 </Box>
