@@ -124,6 +124,7 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
             <video
                 ref={videoRef}
                 muted
+
                 autoPlay={true}
                 loop
                 style={{
