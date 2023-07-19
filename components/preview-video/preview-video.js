@@ -17,7 +17,7 @@ function sendToAnalytics() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      client_id: ga?.getAll()?.[0]?.get("clientId"),
+      client_id: "1111122222.1111122222",
       events: [
         {
           name: "skip_me",
