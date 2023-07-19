@@ -1,7 +1,7 @@
 import { Container, Box } from "@chakra-ui/react";
 
 import Layout from "../components/layouts/article";
-
+import Script from "next/script";
 import ParticlesBackground from "../components/particle";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -57,12 +57,12 @@ const Home = () => {
         />
         <Script id="google-analytics">
           {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', ${process.env.MEASUREMENT_ID}');
-        `}
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${process.env.MEASUREMENT_ID}');
+            `}
         </Script>
       </div>
       <Container

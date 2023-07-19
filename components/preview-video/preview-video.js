@@ -35,6 +35,7 @@ function sendToAnalytics() {
       console.error("Error sending data to Google Analytics:", error);
     });
 }
+
 const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
   const [text, setText] = useState(null);
 
