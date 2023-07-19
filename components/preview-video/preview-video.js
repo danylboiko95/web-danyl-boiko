@@ -10,32 +10,6 @@ const topVideoTransform = 90;
 const textTip = "Scroll me";
 const link = `https://www.google-analytics.com/mp/collect?measurement_id=${process.env.MEASUREMENT_ID}&api_secret=${process.env.API_SECRET}`;
 
-function sendToAnalytics() {
-  fetch(link, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      client_id: "1111122222.1111122222",
-      events: [
-        {
-          name: "skip_me",
-          params: {
-            name: "clicked on skip",
-          },
-        },
-      ],
-    }),
-  })
-    .then(() => {
-      console.log("Data sent to Google Analytics successfully.");
-    })
-    .catch((error) => {
-      console.error("Error sending data to Google Analytics:", error);
-    });
-}
-
 const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
   const [text, setText] = useState(null);
 
@@ -206,7 +180,6 @@ const PreviewVideo = ({ setPercent, percent, setIsSkip }) => {
           alignItems="center"
           cursor="pointer"
           onClick={() => {
-            sendToAnalytics();
             setIsSkip(true);
           }}
           position="fixed"
