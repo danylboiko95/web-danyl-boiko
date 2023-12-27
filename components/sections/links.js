@@ -47,11 +47,11 @@ const Links = () => (
       <ListItem>
         <a
           target="_blank"
-          href="https://www.instagram.com/dev_with_boiko/"
+          href="https://www.instagram.com/danyl.boiko/"
           rel="noreferrer"
         >
           <Box alignItems={"center"} color={"blue"} display={"flex"} gap="5px">
-            <IoLogoInstagram /> dev_with_boiko
+            <IoLogoInstagram /> danyl.boiko
           </Box>
         </a>
       </ListItem>
