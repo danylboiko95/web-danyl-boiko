@@ -45,17 +45,6 @@ const Links = () => (
         </a>
       </ListItem>
       <ListItem>
-        <a
-          target="_blank"
-          href="https://www.instagram.com/danyl.boiko/"
-          rel="noreferrer"
-        >
-          <Box alignItems={"center"} color={"blue"} display={"flex"} gap="5px">
-            <IoLogoInstagram /> danyl.boiko
-          </Box>
-        </a>
-      </ListItem>
-      <ListItem>
         <a target="_blank" href="./pdf/Danyl_Boiko_CV.pdf">
           <Box alignItems={"center"} color={"blue"} display={"flex"} gap="5px">
             <IoDownload /> Download CV
